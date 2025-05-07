@@ -1,0 +1,65 @@
+#Exercício1 
+# Preços unitários dos produtos
+preco_A = 50
+preco_B = 30
+preco_C = 20
+
+# Quantidades vendidas no mês
+quantidade_A = 100
+quantidade_B = 150
+quantidade_C = 200
+
+# Cálculo da receita total
+receita_total = (preco_A * quantidade_A) + (preco_B * quantidade_B) + (preco_C * quantidade_C)
+
+# Exibição do resultado
+print(f"Receita total do mês: R${receita_total:.2f}")
+
+#Exercício2
+# Valor recebido em reais
+valor_em_reais = 5000.00
+
+# Taxa de câmbio atual (R$ por dólar)
+taxa_cambio = 5.25
+
+# Conversão para dólares
+valor_em_dolares = valor_em_reais / taxa_cambio
+
+# Exibição do resultado arredondado para duas casas decimais
+print(f"Valor em dólares: ${valor_em_dolares:.2f}")
+
+#Exercício3
+# Vendas em janeiro e fevereiro
+vendas_janeiro = 120000.00
+vendas_fevereiro = 150000.00
+
+# Cálculo do crescimento percentual
+crescimento_percentual = ((vendas_fevereiro - vendas_janeiro) / vendas_janeiro) * 100
+
+# Exibição do resultado com duas casas decimais
+print(f"Crescimento percentual das vendas: {crescimento_percentual:.2f}%")
+
+#Exercício4
+# Receita e custos do trimestre
+receita = 200000.00
+custos = 120000.00
+
+# Cálculo do lucro bruto
+lucro_bruto = receita - custos
+
+# Cálculo da margem de lucro bruto (em porcentagem)
+margem_lucro_bruto = (lucro_bruto / receita) * 100
+
+# Exibição dos resultados com duas casas decimais
+print(f"Lucro bruto: R${lucro_bruto:.2f}")
+print(f"Margem de lucro bruto: {margem_lucro_bruto:.2f}%")
+
+#Exercício5
+# Notas da pesquisa de satisfação
+notas = [8, 9, 7, 10, 6]
+
+# Cálculo da média das notas
+media_satisfacao = sum(notas) / len(notas)
+
+# Exibição do resultado com uma casa decimal
+print(f"Média de satisfação dos clientes: {media_satisfacao:.1f}")
