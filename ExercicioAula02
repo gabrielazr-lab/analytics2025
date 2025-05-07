@@ -1,0 +1,209 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "68c8472f-d161-401b-8028-e74a54f18dc6",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "A temperatura é de: 13.61\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Exemplo de temperatura em Fahrenheit\n",
+    "temp_f = 56.5\n",
+    "\n",
+    "# Conversão para Celsius\n",
+    "temp_c = (temp_f - 32) * 5 / 9\n",
+    "\n",
+    "# Exibindo o resultado com duas casas decimais\n",
+    "print(f\"A temperatura é de: {temp_c:.2f}\")\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "fd3560a4-7454-473e-8bda-b973315eba19",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['25\\n', '36\\n', '10\\n', '48\\n', '59\\n', '-15\\n', '26\\n', '-26\\n', '-15\\n', '-1235\\n', '-89\\n', '59\\n', '10\\n', '0\\n', '0\\n', '10\\n', '-59\\n', '10\\n', '23\\n', '56\\n', '-89\\n', '-47\\n', '15\\n', '10\\n', '9\\n', '8\\n', '4\\n', '3\\n', '-25\\n', '10\\n']\n",
+      "[25, 36, 10, 48, 59, -15, 26, -26, -15, -1235, -89, 59, 10, 0, 0, 10, -59, 10, 23, 56, -89, -47, 15, 10, 9, 8, 4, 3, -25, 10]\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Abrindo o arquivo para leitura\n",
+    "arquivo = open(\"numeros.txt\", 'r')\n",
+    "\n",
+    "# Lendo todas as linhas e armazenando na lista\n",
+    "linhas = arquivo.readlines()\n",
+    "\n",
+    "# Imprimindo a lista original com '\\n'\n",
+    "print(linhas)\n",
+    "\n",
+    "# Convertendo para inteiros e limpando os '\\n'\n",
+    "lista_numeros = [int(valor.strip()) for valor in linhas]\n",
+    "\n",
+    "# Exibindo os números convertidos\n",
+    "print(lista_numeros)\n",
+    "\n",
+    "# Fechando o arquivo\n",
+    "arquivo.close()\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "5187e1aa-7720-4529-b041-06c3b8a17754",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "30\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Quantidade de números\n",
+    "qtd_numeros = len(lista_numeros)\n",
+    "print(qtd_numeros)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "567aa2ca-1462-4c74-b56e-c3215ee9f409",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "numero_procurado = -1235\n",
+    "print(numero_procurado in lista_numeros)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "37b06220-9461-4bde-8907-6d36af84cb81",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "O número 10 aparece 6 vezes.\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Reabrindo o arquivo\n",
+    "arquivo = open(\"numeros.txt\", 'r')\n",
+    "\n",
+    "# Lendo novamente\n",
+    "linhas = arquivo.readlines()\n",
+    "\n",
+    "# Contando quantas vezes o número 10 aparece como string\n",
+    "ocorrencias_10 = linhas.count('10\\n')\n",
+    "print(f\"O número 10 aparece {ocorrencias_10} vezes.\")\n",
+    "\n",
+    "arquivo.close()\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "cd7642cb-d0de-4748-821d-35c7d01ce83a",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[25, 36, 10, 48, 59, -15, 26, -26, -15, -1235, -89, 59, 10, 0, 0, 10, -59, 10, 23, 56, -89, -47, 15, 10, 9, 8, 4, 3, -25, 10]\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Abrindo o arquivo\n",
+    "arquivo = open(\"numeros.txt\", 'r')\n",
+    "\n",
+    "# Lendo conteúdo completo\n",
+    "conteudo_arquivo = arquivo.read()\n",
+    "\n",
+    "# Separando os números (por espaço, se aplicável)\n",
+    "dados_texto = conteudo_arquivo.split()\n",
+    "\n",
+    "# Mapeando para inteiro\n",
+    "dados_inteiros = map(int, dados_texto)\n",
+    "\n",
+    "# Convertendo para lista\n",
+    "lista_convertida = list(dados_inteiros)\n",
+    "\n",
+    "# Imprimindo a lista\n",
+    "print(lista_convertida)\n",
+    "\n",
+    "# Fechando o arquivo\n",
+    "arquivo.close()\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "a7199239-c00b-4d95-98c9-d35966e77ef9",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "-1169\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Soma de todos os inteiros\n",
+    "soma_total = sum(lista_convertida)\n",
+    "print(soma_total)\n"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python [conda env:base] *",
+   "language": "python",
+   "name": "conda-base-py"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.7"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
