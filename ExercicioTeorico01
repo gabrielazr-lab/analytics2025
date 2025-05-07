@@ -1,0 +1,1878 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "cd726759-f53a-4326-b1b1-b473211f3425",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#exercício aula 01"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "1256ebca-0ded-47a3-b721-c2faef14e948",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Hello, world!\n"
+     ]
+    }
+   ],
+   "source": [
+    "# primeiro programa\n",
+    "print(\"Hello, world!\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "2a96e5a9-8f8e-4169-b0fd-e1c50851a428",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "13"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "\n",
+    "len(\"Hello, world!\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "9325969e-65a7-4889-9ff4-b958634a015d",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "str"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "type(\"Hello, world!\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "fd05fd18-41a5-428a-ba6f-482e8caed515",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['__add__',\n",
+       " '__class__',\n",
+       " '__contains__',\n",
+       " '__delattr__',\n",
+       " '__dir__',\n",
+       " '__doc__',\n",
+       " '__eq__',\n",
+       " '__format__',\n",
+       " '__ge__',\n",
+       " '__getattribute__',\n",
+       " '__getitem__',\n",
+       " '__getnewargs__',\n",
+       " '__getstate__',\n",
+       " '__gt__',\n",
+       " '__hash__',\n",
+       " '__init__',\n",
+       " '__init_subclass__',\n",
+       " '__iter__',\n",
+       " '__le__',\n",
+       " '__len__',\n",
+       " '__lt__',\n",
+       " '__mod__',\n",
+       " '__mul__',\n",
+       " '__ne__',\n",
+       " '__new__',\n",
+       " '__reduce__',\n",
+       " '__reduce_ex__',\n",
+       " '__repr__',\n",
+       " '__rmod__',\n",
+       " '__rmul__',\n",
+       " '__setattr__',\n",
+       " '__sizeof__',\n",
+       " '__str__',\n",
+       " '__subclasshook__',\n",
+       " 'capitalize',\n",
+       " 'casefold',\n",
+       " 'center',\n",
+       " 'count',\n",
+       " 'encode',\n",
+       " 'endswith',\n",
+       " 'expandtabs',\n",
+       " 'find',\n",
+       " 'format',\n",
+       " 'format_map',\n",
+       " 'index',\n",
+       " 'isalnum',\n",
+       " 'isalpha',\n",
+       " 'isascii',\n",
+       " 'isdecimal',\n",
+       " 'isdigit',\n",
+       " 'isidentifier',\n",
+       " 'islower',\n",
+       " 'isnumeric',\n",
+       " 'isprintable',\n",
+       " 'isspace',\n",
+       " 'istitle',\n",
+       " 'isupper',\n",
+       " 'join',\n",
+       " 'ljust',\n",
+       " 'lower',\n",
+       " 'lstrip',\n",
+       " 'maketrans',\n",
+       " 'partition',\n",
+       " 'removeprefix',\n",
+       " 'removesuffix',\n",
+       " 'replace',\n",
+       " 'rfind',\n",
+       " 'rindex',\n",
+       " 'rjust',\n",
+       " 'rpartition',\n",
+       " 'rsplit',\n",
+       " 'rstrip',\n",
+       " 'split',\n",
+       " 'splitlines',\n",
+       " 'startswith',\n",
+       " 'strip',\n",
+       " 'swapcase',\n",
+       " 'title',\n",
+       " 'translate',\n",
+       " 'upper',\n",
+       " 'zfill']"
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "dir(\"Hello, world!\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "734f908e-b5d2-4b37-812f-09718ab9ad1e",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Help on built-in function upper:\n",
+      "\n",
+      "upper() method of builtins.str instance\n",
+      "    Return a copy of the string converted to uppercase.\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "help(\"Hello, world!\".upper)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "cf39db4b-e408-40da-a464-892026392d61",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "HELLO, WORLD!\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"Hello, world!\".upper())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "id": "92540f01-a0c8-48a6-a714-3c25e0cf6ed6",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Hello, world!\n"
+     ]
+    }
+   ],
+   "source": [
+    "greettings = \"Hello, world!\"\n",
+    "print(greettings)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "8d709db9-4738-4b0d-9aa1-11d4fc515b14",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "str"
+      ]
+     },
+     "execution_count": 17,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "type(greettings)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "id": "ca081498-e37c-419c-9a7f-dd2ba4c96e9b",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['__add__',\n",
+       " '__class__',\n",
+       " '__contains__',\n",
+       " '__delattr__',\n",
+       " '__dir__',\n",
+       " '__doc__',\n",
+       " '__eq__',\n",
+       " '__format__',\n",
+       " '__ge__',\n",
+       " '__getattribute__',\n",
+       " '__getitem__',\n",
+       " '__getnewargs__',\n",
+       " '__getstate__',\n",
+       " '__gt__',\n",
+       " '__hash__',\n",
+       " '__init__',\n",
+       " '__init_subclass__',\n",
+       " '__iter__',\n",
+       " '__le__',\n",
+       " '__len__',\n",
+       " '__lt__',\n",
+       " '__mod__',\n",
+       " '__mul__',\n",
+       " '__ne__',\n",
+       " '__new__',\n",
+       " '__reduce__',\n",
+       " '__reduce_ex__',\n",
+       " '__repr__',\n",
+       " '__rmod__',\n",
+       " '__rmul__',\n",
+       " '__setattr__',\n",
+       " '__sizeof__',\n",
+       " '__str__',\n",
+       " '__subclasshook__',\n",
+       " 'capitalize',\n",
+       " 'casefold',\n",
+       " 'center',\n",
+       " 'count',\n",
+       " 'encode',\n",
+       " 'endswith',\n",
+       " 'expandtabs',\n",
+       " 'find',\n",
+       " 'format',\n",
+       " 'format_map',\n",
+       " 'index',\n",
+       " 'isalnum',\n",
+       " 'isalpha',\n",
+       " 'isascii',\n",
+       " 'isdecimal',\n",
+       " 'isdigit',\n",
+       " 'isidentifier',\n",
+       " 'islower',\n",
+       " 'isnumeric',\n",
+       " 'isprintable',\n",
+       " 'isspace',\n",
+       " 'istitle',\n",
+       " 'isupper',\n",
+       " 'join',\n",
+       " 'ljust',\n",
+       " 'lower',\n",
+       " 'lstrip',\n",
+       " 'maketrans',\n",
+       " 'partition',\n",
+       " 'removeprefix',\n",
+       " 'removesuffix',\n",
+       " 'replace',\n",
+       " 'rfind',\n",
+       " 'rindex',\n",
+       " 'rjust',\n",
+       " 'rpartition',\n",
+       " 'rsplit',\n",
+       " 'rstrip',\n",
+       " 'split',\n",
+       " 'splitlines',\n",
+       " 'startswith',\n",
+       " 'strip',\n",
+       " 'swapcase',\n",
+       " 'title',\n",
+       " 'translate',\n",
+       " 'upper',\n",
+       " 'zfill']"
+      ]
+     },
+     "execution_count": 19,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "dir(greettings)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "id": "b8889409-ab48-466e-b2d3-3d7fafabe2a7",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Mundo Feliz\n"
+     ]
+    }
+   ],
+   "source": [
+    "#1. Métodos especiais \n",
+    "\n",
+    "g = \"Mundo\"\n",
+    "\n",
+    "print(g.__add__(\" Feliz\"))        # Soma (concatenação) -> \"Mundo Feliz\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "id": "ce104036-d2df-47cb-8feb-7254fd4b5336",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "<class 'str'>\n"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "g = \"Mundo\"\n",
+    "print(g.__class__)                # Retorna o tipo do objeto -> <class 'str'>"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "id": "c23d6ed9-a11e-45b6-9d3b-623d61b4a847",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "g = \"Mundo\"\n",
+    "print(g.__contains__(\"un\"))       # Verifica se contém substring -> True"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "id": "5e8431f3-3742-4f6a-9c27-b947852126d2",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "<method-wrapper '__delattr__' of str object at 0x0000020E403079C0>\n"
+     ]
+    }
+   ],
+   "source": [
+    "g = \"Mundo\"\n",
+    "print(g.__delattr__)              # Não aplicável para str (imutável)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "id": "aa2f255e-ff1f-4f41-bb68-f267b5fb9671",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['__new__', '__repr__', '__hash__', '__str__', '__lt__', '__le__', '__eq__', '__ne__', '__gt__', '__ge__', '__iter__', '__mod__', '__rmod__', '__len__', '__getitem__', '__add__', '__mul__', '__rmul__', '__contains__', 'encode', 'replace', 'split', 'rsplit', 'join', 'capitalize', 'casefold', 'title', 'center', 'count', 'expandtabs', 'find', 'partition', 'index', 'ljust', 'lower', 'lstrip', 'rfind', 'rindex', 'rjust', 'rstrip', 'rpartition', 'splitlines', 'strip', 'swapcase', 'translate', 'upper', 'startswith', 'endswith', 'removeprefix', 'removesuffix', 'isascii', 'islower', 'isupper', 'istitle', 'isspace', 'isdecimal', 'isdigit', 'isnumeric', 'isalpha', 'isalnum', 'isidentifier', 'isprintable', 'zfill', 'format', 'format_map', '__format__', 'maketrans', '__sizeof__', '__getnewargs__', '__doc__', '__getattribute__', '__setattr__', '__delattr__', '__init__', '__reduce_ex__', '__reduce__', '__getstate__', '__subclasshook__', '__init_subclass__', '__dir__', '__class__']\n"
+     ]
+    }
+   ],
+   "source": [
+    "g = \"Mundo\"\n",
+    "print(g.__dir__())                # Lista métodos e atributos disponíveis"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "id": "994141ca-5a1c-42fe-9f78-fa008e58c246",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "str(object='') -> str\n",
+      "str(bytes_or_buffer[, encoding[, errors]]) -> str\n",
+      "\n",
+      "Create a new string object from the given object. If encoding or\n",
+      "errors is specified, then the object must expose a data buffer\n",
+      "that will be decoded using the given encoding and error handler.\n",
+      "Otherwise, returns the result of object.__str__() (if defined)\n",
+      "or repr(object).\n",
+      "encoding defaults to sys.getdefaultencoding().\n",
+      "errors defaults to 'strict'.\n"
+     ]
+    }
+   ],
+   "source": [
+    "g = \"Mundo\"\n",
+    "print(g.__doc__)                  # Docstring da classe str"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 33,
+   "id": "ab04eb4f-5b50-4156-a3d8-2db1ecb8880f",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "g = \"Mundo\"\n",
+    "print(g.__eq__(\"Mundo\"))          # Verifica igualdade -> True"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "id": "017161cc-b63f-4c15-8c6f-04fcbc18812d",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Mundo     \n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "10"
+      ]
+     },
+     "execution_count": 35,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "g = \"Mundo\"\n",
+    "print(g.__format__(\"<10\"))        # Formatação personalizada -> \"Mundo     \"\n",
+    "len(g.__format__(\"<10\"))          # Descubro a quantidade de caracteres da formatação"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 37,
+   "id": "ee849b08-46d3-4fb6-a5ac-e1afdc0394b6",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "g = \"Mundo\"\n",
+    "print(g.__ge__(\"M\"))              # Verifica se g >= \"M\" (ordem lexicográfica) -> True"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 39,
+   "id": "8e18fa60-234a-4101-942f-4f22a95ba92e",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "<built-in method upper of str object at 0x0000020E403079C0>\n"
+     ]
+    }
+   ],
+   "source": [
+    "g = \"Mundo\"\n",
+    "print(g.__getattribute__(\"upper\"))  # Acessa atributo/método -> retorna função upper"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 41,
+   "id": "d6b42292-8770-474b-aeb0-0b7239091008",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "u\n"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "g = \"Mundo\"\n",
+    "print(g.__getitem__(1))           # Acessa o caractere na posição 1 -> \"u\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 43,
+   "id": "08c751fa-436e-4a58-a8e5-6ed95b7d544a",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "('Mundo',)\n"
+     ]
+    }
+   ],
+   "source": [
+    "g = \"Mundo\"\n",
+    "print(g.__getnewargs__())         # Usado por mecanismos internos como pickle"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 45,
+   "id": "b1e129a7-d2ad-4ccc-b296-8d558273bdb9",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "None\n"
+     ]
+    }
+   ],
+   "source": [
+    "g = \"Mundo\"\n",
+    "print(g.__getstate__())           # Usado para serialização (strings retornam None)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 47,
+   "id": "cf0ca964-bfeb-4baf-a782-6a2e0042a68a",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "g = \"Mundo\"\n",
+    "print(g.__gt__(\"A\"))              # Verifica se g > \"A\" -> True"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 49,
+   "id": "6c3e8dc0-e4b8-40f6-90b2-b6e989102e8c",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "534369012773629361\n"
+     ]
+    }
+   ],
+   "source": [
+    "g = \"Mundo\"\n",
+    "print(g.__hash__())               # Retorna o hash (número) -> usado em dicionários"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 51,
+   "id": "e047239c-6b23-466f-ada0-3829e2f22b1f",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "None\n"
+     ]
+    }
+   ],
+   "source": [
+    "g = \"Mundo\"\n",
+    "print(g.__init_subclass__())      # Usado para herança, não afeta str"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 53,
+   "id": "41e4269e-6111-47f8-81e2-6562c3e195e5",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['M', 'u', 'n', 'd', 'o']\n"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "g = \"Mundo\"\n",
+    "print(list(g.__iter__()))         # Torna iterável -> ['M', 'u', 'n', 'd', 'o']"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 55,
+   "id": "2e3a96a7-8972-4b0c-b349-338a060163a2",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "g = \"Mundo\"\n",
+    "print(g.__le__(\"Z\"))              # Verifica se g <= \"Z\" -> False"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 57,
+   "id": "b7a21b2e-5612-47c0-b14f-1bdd4eac5cb9",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "5\n"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "g = \"Mundo\"\n",
+    "print(g.__len__())                # Retorna o tamanho -> 5"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 59,
+   "id": "7a5cb0da-3184-41ca-93c4-02db5cdae985",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "False\n"
+     ]
+    }
+   ],
+   "source": [
+    "g = \"Mundo\"\n",
+    "print(g.__lt__(\"Feliz\"))          # Verifica se g < \"Feliz\" -> True"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 61,
+   "id": "a35677ff-54d6-4f3b-810e-273c00188f64",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Olá, Gabriela! Você tem 100 novas mensagens.\n"
+     ]
+    }
+   ],
+   "source": [
+    "formato = \"Olá, %s! Você tem %d novas mensagens.\"\n",
+    "valores = (\"Gabriela\", 100)\n",
+    "\n",
+    "# Usando o método especial __mod__ diretamente\n",
+    "resultado = formato.__mod__(valores)\n",
+    "\n",
+    "print(resultado)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 63,
+   "id": "ab8d9e0e-f97e-4e38-92a8-006fa448b32c",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "MundoMundo\n"
+     ]
+    }
+   ],
+   "source": [
+    "g = \"Mundo\"\n",
+    "print(g.__mul__(2))               # Repetição -> \"MundoMundo\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 65,
+   "id": "a96a0814-68de-4f21-a54b-6263cff83b6e",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "g = \"Mundo\"\n",
+    "print(g.__ne__(\"Feliz\"))          # Verifica desigualdade -> True"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 67,
+   "id": "0ea4dabb-ddf9-4119-a3ad-482d70b084b4",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Mu\n"
+     ]
+    }
+   ],
+   "source": [
+    "g = \"Mundo\"\n",
+    "print(str.__new__(str, \"Mu\"))     # Cria nova string -> \"Mu\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 69,
+   "id": "c1dcbbe6-d109-4439-9853-2dbcdea832ce",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "(<function __newobj__ at 0x0000020E395F02C0>, (<class 'str'>, 'Mundo'), None, None, None)\n"
+     ]
+    }
+   ],
+   "source": [
+    "g = \"Mundo\"\n",
+    "print(g.__reduce_ex__(2))         # Usado por pickle com protocolo"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 71,
+   "id": "3dc63ac9-2eef-4c06-9e4c-e5658d66ff3e",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "'Mundo'\n"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "g = \"Mundo\"\n",
+    "print(g.__repr__())               # Retorna representação formal -> \"'Mundo'\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 73,
+   "id": "1aca5954-509b-4411-8972-b4337f55b732",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "GabrielaGabrielaGabriela\n"
+     ]
+    }
+   ],
+   "source": [
+    "g = \"Gabriela\"\n",
+    "print(g.__rmul__(3))              # Repetição (lado direito) -> \"GabrielaGabrielaGabriela\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 75,
+   "id": "425f618b-de7c-459e-995a-18f353ae621c",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "46\n"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "g = \"Mundo\"\n",
+    "print(g.__sizeof__())             # Tamanho em bytes na memória"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 77,
+   "id": "36f47c1a-96ef-4bb1-a2fb-97ccfe99ac2d",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Mundo\n"
+     ]
+    }
+   ],
+   "source": [
+    "g = \"Mundo\"\n",
+    "print(g.__str__())                # Retorna representação em string -> \"Mundo\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 79,
+   "id": "f63e3531-c615-41a6-aba9-110ba8e39fb6",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "NotImplemented\n"
+     ]
+    }
+   ],
+   "source": [
+    "g = \"Mundo\"\n",
+    "print(str.__subclasshook__(str)) # Verifica compatibilidade de subclasses -> True"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 81,
+   "id": "e3fcde16-2b9f-4dfd-add7-fa82c1735af2",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      " mundo feliz! \n"
+     ]
+    }
+   ],
+   "source": [
+    "# 2. Métodos comuns de strings\n",
+    "\n",
+    "g = \" Mundo Feliz! \"\n",
+    "print(g.capitalize())             # Primeira letra maiúscula, resto minúsculo"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 83,
+   "id": "6d403ca8-2054-477a-8c9a-72e5f53f5e36",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      " mundo feliz! \n"
+     ]
+    }
+   ],
+   "source": [
+    "g = \" Mundo Feliz! \"\n",
+    "print(g.casefold())               # Minúsculo agressivo (melhor para comparação)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 85,
+   "id": "d67f44c8-252c-4767-ad9d-129792f33bc8",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "--- Mundo Feliz! ---\n"
+     ]
+    }
+   ],
+   "source": [
+    "g = \" Mundo Feliz! \"\n",
+    "print(g.center(20, '-'))          # Centraliza texto com preenchimento"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 87,
+   "id": "e096c679-7f8f-4711-8db3-dc3153b6308c",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n"
+     ]
+    }
+   ],
+   "source": [
+    "g = \" Mundo Feliz! \"\n",
+    "print(g.count(\"o\"))               # Conta quantas vezes aparece \"o\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 89,
+   "id": "dc560c17-4520-41bf-8287-bf59bd218e34",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "b' Mundo Feliz! '\n"
+     ]
+    }
+   ],
+   "source": [
+    "g = \" Mundo Feliz! \"\n",
+    "print(g.encode())                 # Codifica para bytes (UTF-8)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 91,
+   "id": "c938aa9d-2d19-461f-bbef-612ec2fb4a6f",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "g = \" Mundo Feliz! \"\n",
+    "print(g.endswith(\"! \"))           # Verifica se termina com \"! \""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 93,
+   "id": "f8379ce6-cc1e-4277-8dee-ac2283d48f56",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "a   b\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"a\\tb\".expandtabs(4))       # Expande tabulação para 4 espaços"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 95,
+   "id": "3e5439ce-280a-4ecb-9511-73eb920debf0",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "7\n"
+     ]
+    }
+   ],
+   "source": [
+    "g = \" Mundo Feliz! \"\n",
+    "print(g.find(\"Feliz\"))            # Retorna índice de \"Feliz\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 97,
+   "id": "13c4322f-7608-4a1b-9ebb-9dd36d821f70",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Name: Gabriela\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"Name: {}\".format(\"Gabriela\"))  # Substitui {} por valor"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 99,
+   "id": "825fe12b-436b-48e8-853b-60d9f72e9df3",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Name: Bob\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"Name: {name}\".format_map({'name': 'Bob'}))  # Substituição com dicionário"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 101,
+   "id": "5fc735e5-0259-4ea9-8bfc-97b8402c7781",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "7\n"
+     ]
+    }
+   ],
+   "source": [
+    "g = \" Mundo Feliz! \"\n",
+    "print(g.index(\"F\"))              # Índice de \"F\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 103,
+   "id": "e7885add-e324-45c4-b44c-4d5cb0899052",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"abc123\".isalnum())         # True se alfanumérico"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 105,
+   "id": "7fe3c63d-6dea-4fe2-b572-74cff1acca9f",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"abc\".isalpha())            # True se apenas letras"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 107,
+   "id": "a32375b9-f4d5-4b8b-9cff-8ef5634465c0",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"ABC\".isascii())            # True se apenas ASCII"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 109,
+   "id": "972b701a-40e6-474d-bd3b-db233e789304",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"123\".isdecimal())          # True se apenas decimais"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 111,
+   "id": "4c0fc100-0221-40a0-b671-e8ad1803bd1d",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"123\".isdigit())            # True se apenas dígitos"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 113,
+   "id": "823ffebb-ff12-467d-b572-3d4c272fcb7d",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"var1\".isidentifier())      # True se identificador válido"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 115,
+   "id": "9d59205c-14b3-4f16-9c36-05ef73e7c597",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"abc\".islower())            # True se todas minúsculas"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 117,
+   "id": "f967ef00-ba82-427e-9b7a-880ebe9fd2f2",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"Ⅷ\".isnumeric())            # True (números romanos também)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 119,
+   "id": "f788d3de-dca2-407c-a31d-96971d0777d9",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"Text\".isprintable())       # True se todos imprimíveis"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 121,
+   "id": "420c49b7-df08-4317-b7d1-e87d0d2ecd50",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"   \".isspace())            # True se só espaços"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 123,
+   "id": "6b4dca3e-896b-4b5b-8334-526d57eb8cd2",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"Mundo Feliz\".istitle())    # True se estilo de título"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 125,
+   "id": "c2abaa2a-116e-4880-b50f-af90805e367d",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"HELLO\".isupper())          # True se tudo maiúsculo"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 127,
+   "id": "50af2d8f-6ce4-4036-896c-4913b6c5ed7a",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "a-b-c\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"-\".join([\"a\", \"b\", \"c\"]))  # Une com separador"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 129,
+   "id": "12d7b8d8-0528-4146-8d07-2073916772c4",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "abc..\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"abc\".ljust(5, \".\"))        # Alinha à esquerda com preenchimento"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 131,
+   "id": "d42376aa-6a87-4710-917d-774656930db5",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "abc\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"ABC\".lower())              # Minúsculas"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 133,
+   "id": "b72d8723-fb6e-47f9-a324-9f22d9dad793",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "text\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"   text\".lstrip())         # Remove espaços à esquerda"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 135,
+   "id": "f00bab67-82b1-4e9c-b4c1-81ad72ff6244",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1ppl2\n"
+     ]
+    }
+   ],
+   "source": [
+    "table = str.maketrans(\"ae\", \"12\") # Cria mapeamento\n",
+    "print(\"apple\".translate(table))   # Substitui 'a' por '1', 'e' por '2'"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 137,
+   "id": "4e76012f-ce6f-4da0-ada8-8671f16850ca",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "('key', '=', 'value')\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"key=value\".partition(\"=\")) # Divide em 3 partes"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 139,
+   "id": "8ed8cf5c-31cd-44ba-9cc3-1ccd455158fa",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "happy\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"unhappy\".removeprefix(\"un\"))  # Remove \"un\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 141,
+   "id": "1b0f2858-deed-49a3-9bf1-79303239c959",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "test\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"test.py\".removesuffix(\".py\"))# Remove \".py\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 143,
+   "id": "58f4102a-e8b5-495b-b454-f255a242c61b",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "bonono\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"banana\".replace(\"a\", \"o\")) # Substitui \"a\" por \"o\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 145,
+   "id": "1abe5364-91b2-4828-b132-795502cb70e5",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "5\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"banana\".rfind(\"a\"))        # Última posição de \"a\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 147,
+   "id": "ebc366c9-4657-4745-a298-9637e52dec44",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "5\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"banana\".rindex(\"a\"))       # Igual ao acima"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 149,
+   "id": "c4837d35-b8ec-498e-9d5f-23793de85e3d",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "---abc\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"abc\".rjust(6, \"-\"))        # Alinha à direita"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 151,
+   "id": "837a1787-4339-4142-9ce3-31532cc2a7ac",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "('a=b', '=', 'c')\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"a=b=c\".rpartition(\"=\"))    # Divide da direita"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 153,
+   "id": "73c17eeb-18e1-46d1-a2fa-50b4ac20b964",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['a,b', 'c']\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"a,b,c\".rsplit(\",\", 1))     # Divide da direita, uma vez"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 155,
+   "id": "263723f0-397e-4d2d-a128-0f546360d9ab",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "  hi\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"  hi  \".rstrip())          # Remove espaços à direita"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 157,
+   "id": "8087c50f-0763-46ce-a5c9-81f9a040bfd3",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['a', 'b', 'c']\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"a b c\".split())            # Divide por espaços"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 159,
+   "id": "fdf6790d-25b0-4030-b6e7-e134d5718b5d",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['a', 'b', 'c']\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"a\\nb\\nc\".splitlines())     # Divide por quebras de linha"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 161,
+   "id": "6199cb78-3d5c-4b79-adb9-863a905b991d",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"data.csv\".startswith(\"data\")) # Verifica início"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 163,
+   "id": "395f9f32-7471-40b6-95f3-748db6c32f2a",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "trim\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"  trim  \".strip())         # Remove espaços dos dois lados"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 165,
+   "id": "89eeafce-0358-4fb7-bb15-0d66cd2bf235",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "pYtHoN\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"PyThOn\".swapcase())        # Inverte maiúscula/minúscula"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 167,
+   "id": "eb618ceb-6e01-4469-ae14-7acec9f42145",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Hello World\n"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "print(\"hello world\".title())      # Estilo título\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 169,
+   "id": "79e034fe-bc55-4393-8d84-cd7b6116033c",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "HELLO\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"hello\".upper())            # Tudo maiúsculo"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 171,
+   "id": "9e6553e5-2c09-480f-a53e-033c4e4cfc87",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "00042\n"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "print(\"42\".zfill(5))              # Zeros à esquerda"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 173,
+   "id": "de06396e-a849-43bf-a847-eb7f0d78088d",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Help on built-in function upper:\n",
+      "\n",
+      "upper() method of builtins.str instance\n",
+      "    Return a copy of the string converted to uppercase.\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "# Ajuda sobre método upper\n",
+    "help(\"Mundo Feliz!\".upper)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 175,
+   "id": "8a87bacb-e2bc-41d7-b60c-12480119c0ae",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "MUNDO FELIZ!\n"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "# Usando o método upper em uma string\n",
+    "print(\"Mundo Feliz!\".upper())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "4d49e9d4-beff-4224-bd36-00588a330782",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python [conda env:base] *",
+   "language": "python",
+   "name": "conda-base-py"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.7"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
