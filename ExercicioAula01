@@ -1,0 +1,756 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "059832bf-64d7-448e-9a90-15eccf0f382e",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "int"
+      ]
+     },
+     "execution_count": 1,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#Qual o tipo de variável x?\n",
+    "x = 5\n",
+    "type(x)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "5deba777-6723-442f-83f0-510b9b2f6735",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "74"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#Quantos métodos tem x?\n",
+    "x = 5\n",
+    "len(dir(x))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "6ad9e500-eafd-4e79-83ad-f0728a6390d2",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "O valor da Variável NÃO é iterável.\n"
+     ]
+    }
+   ],
+   "source": [
+    "#x é iterável?\n",
+    "# DICA: use a build-in function len\n",
+    "\n",
+    "x = 5\n",
+    "\n",
+    "if hasattr(x, '__len__'):\n",
+    "    print(\"Iterável.\")\n",
+    "else:\n",
+    "    print(\"O valor da Variável NÃO é iterável.\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "ee156cd6-0c30-4ca8-a15a-a54251851f19",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "list"
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#Qual o tipo de variável de x?\n",
+    "# abaixo é atribuído [1,2,'pim',4,5,'pim'] a x\n",
+    "x = [1,2,'pim',4,5,'pim']\n",
+    "\n",
+    "type(x)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "457b3bdd-29b1-4af8-8ccc-e14ef2a1d85d",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "48"
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#Quantos métodos tem x?\n",
+    "\n",
+    "x = [1,2,'pim',4,5,'pim']\n",
+    "len(dir(x))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "78e7f177-c49d-4331-8fd7-4c1ef41b6520",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Help on built-in function reverse:\n",
+      "\n",
+      "reverse() method of builtins.list instance\n",
+      "    Reverse *IN PLACE*.\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Imprima a ajuda sobre o anti-penúltimo método de x?\n",
+    "\n",
+    "x = [1,2,'pim',4,5,'pim']\n",
+    "dir(x)\n",
+    "help(x.reverse)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "82abff27-498b-487d-b035-398ade88180c",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[1, 2, 4, 5]\n"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "#use o método remove de x para remover os 'prin's\n",
+    "\n",
+    "x = [1, 2, 'pim', 4, 5, 'pim']\n",
+    "while 'pim' in x:\n",
+    "    x.remove('pim')\n",
+    "print(x)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "id": "58c5704f-c8a3-4c16-a7e5-d23a6c71bb83",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[1, 2, 'pim', 4, 5, 'pim']\n",
+      "[1, 2, 4, 5]\n"
+     ]
+    }
+   ],
+   "source": [
+    "#imprima x\n",
+    "x = [1, 2, 'pim', 4, 5, 'pim']\n",
+    "print(x)\n",
+    "\n",
+    "# sem 'prin's\n",
+    "\n",
+    "x = [1, 2, 'pim', 4, 5, 'pim']\n",
+    "while 'pim' in x:\n",
+    "    x.remove('pim')\n",
+    "print(x)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "cffb28df-fcb3-4ae0-b526-24c58ff38c57",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Iterável.\n"
+     ]
+    }
+   ],
+   "source": [
+    "#x é interavel?\n",
+    "x = [1, 2, 'pim', 4, 5, 'pim']\n",
+    "if hasattr(x, '__len__'):\n",
+    "    print(\"Iterável.\")\n",
+    "else:\n",
+    "    print(\"O valor da Variável NÃO é iterável.\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "id": "a4d06279-3c38-47fd-96d1-73a5e289ca04",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "dict"
+      ]
+     },
+     "execution_count": 19,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#Qual o tipo de variável x?\n",
+    "\n",
+    "x = {\n",
+    "    \"alunos\": ['ted','bia','bob'],\n",
+    "    \"notas\":[7,5,9],\n",
+    "    \"universidade\": \"UFTM\",\n",
+    "    \"ano\": 2015\n",
+    "}\n",
+    "\n",
+    "type(x)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "id": "db342bc9-4cac-4c56-84f7-e39bc64fd55b",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "46"
+      ]
+     },
+     "execution_count": 21,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#Quantos métodos tem x?\n",
+    "\n",
+    "x = {\n",
+    "    \"alunos\": ['ted','bia','bob'],\n",
+    "    \"notas\":[7,5,9],\n",
+    "    \"universidade\": \"UFTM\",\n",
+    "    \"ano\": 2015\n",
+    "}\n",
+    "\n",
+    "len(dir(x))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "id": "d2b75379-bc39-4587-a843-151353ded7c1",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Help on built-in function keys:\n",
+      "\n",
+      "keys(...) method of builtins.dict instance\n",
+      "    D.keys() -> a set-like object providing a view on D's keys\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Mostre ajuda sobre o método Keys\n",
+    "\n",
+    "x = {\n",
+    "    \"alunos\": ['ted','bia','bob'],\n",
+    "    \"notas\":[7,5,9],\n",
+    "    \"universidade\": \"UFTM\",\n",
+    "    \"ano\": 2015\n",
+    "}\n",
+    "\n",
+    "help(x.keys)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "id": "ae6496ce-44e1-4808-b9c2-04580674949c",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "dict_keys(['alunos', 'notas', 'universidade', 'ano'])\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Imprima o retorno do método keys\n",
+    "\n",
+    "x = {\n",
+    "    \"alunos\": ['ted','bia','bob'],\n",
+    "    \"notas\":[7,5,9],\n",
+    "    \"universidade\": \"UFTM\",\n",
+    "    \"ano\": 2015\n",
+    "}\n",
+    "\n",
+    "print(x.keys())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "id": "4d7b1f73-9922-4baf-9664-4757ba79a4f5",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Help on built-in function values:\n",
+      "\n",
+      "values(...) method of builtins.dict instance\n",
+      "    D.values() -> an object providing a view on D's values\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "#mostre ajuda sobre o método values\n",
+    "\n",
+    "x = {\n",
+    "    \"alunos\": ['ted','bia','bob'],\n",
+    "    \"notas\":[7,5,9],\n",
+    "    \"universidade\": \"UFTM\",\n",
+    "    \"ano\": 2015\n",
+    "}\n",
+    "\n",
+    "help(x.values)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "id": "3c57faa2-356f-440c-8190-37196ed442cb",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "dict_values([['ted', 'bia', 'bob'], [7, 5, 9], 'UFTM', 2015])\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Imprima o retorno do método volues\n",
+    "\n",
+    "x = {\n",
+    "    \"alunos\": ['ted','bia','bob'],\n",
+    "    \"notas\":[7,5,9],\n",
+    "    \"universidade\": \"UFTM\",\n",
+    "    \"ano\": 2015\n",
+    "}\n",
+    "\n",
+    "print(x.values())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "id": "ca165632-0e0e-4ff9-91d0-59ee5206d437",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Iterável.\n"
+     ]
+    }
+   ],
+   "source": [
+    "#x é interável?\n",
+    "\n",
+    "x = {\n",
+    "    \"alunos\": ['ted','bia','bob'],\n",
+    "    \"notas\":[7,5,9],\n",
+    "    \"universidade\": \"UFTM\",\n",
+    "    \"ano\": 2015\n",
+    "}\n",
+    "\n",
+    "try:\n",
+    "    len(x)\n",
+    "    print(\"Iterável.\")\n",
+    "except TypeError:\n",
+    "    print(\"O valor da Variável NÃO é iterável.\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 33,
+   "id": "f4706267-b5f7-4001-a8dd-9f94dedb0a89",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "secesso\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Use o método dos strings para substituir 'progr' por 'sec' -> DESAFIO\n",
+    "\n",
+    "x = \"progresso\"\n",
+    "print(x.replace(\"progr\", \"sec\"))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "id": "20079573-63f1-4c50-8504-113d2dbc3ca4",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[4.85, 2.51, 2.85, 3.94, 1.07]\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Crie uma lista do tipo float\n",
+    "\n",
+    "Z = [4.85, 2.51, 2.85, 3.94, 1.07]\n",
+    "print(Z)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 39,
+   "id": "7ccb8ee2-57ea-45e0-949b-32f3b96d2f3a",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "4.85\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Usando os built-in functions, imprima o maior valor do elementos da lista\n",
+    "\n",
+    "Z = [4.85, 2.51, 2.85, 3.94, 1.07]\n",
+    "print(max(Z))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 41,
+   "id": "fb40e5cd-7e35-4a51-a49b-2e25e4b39296",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1.07\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Usando os built-in functions, imprima o menor valor do elementos da lista\n",
+    "\n",
+    "Z = [4.85, 2.51, 2.85, 3.94, 1.07]\n",
+    "print(min(Z))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 43,
+   "id": "ceb11de8-cf89-4dd8-ae29-9b5ede43cd86",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "15.219999999999999\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Usando os built-in functions, imprima a soma de todos os elementos da lista\n",
+    "\n",
+    "Z = [4.85, 2.51, 2.85, 3.94, 1.07]\n",
+    "print(sum(Z))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 45,
+   "id": "5fdc7044-e92e-4bbf-ab2d-7a2f6a966d75",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "set"
+      ]
+     },
+     "execution_count": 45,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#Qual o tipo da variável x?\n",
+    "\n",
+    "x = {1,2,3,2,3,5,6,5}\n",
+    "\n",
+    "type(x)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 47,
+   "id": "1da2b3f6-0b2b-44e0-af67-61e56d86d567",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "57"
+      ]
+     },
+     "execution_count": 47,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#Quantos métodos tem a variável x?\n",
+    "\n",
+    "x = {1,2,3,2,3,5,6,5}\n",
+    "\n",
+    "len(dir(x))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 49,
+   "id": "c5b17fc3-fe9c-4074-b898-8d191dcfeacc",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{1, 2, 3, 5}\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Utilize o método remove para remover o número 6 de x\n",
+    "\n",
+    "x = {1,2,3,2,3,5,6,5}\n",
+    "x.remove(6)\n",
+    "print(x)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 51,
+   "id": "b7a57ef6-c7d6-4d94-a825-fe4e19f7de2e",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Iterável.\n"
+     ]
+    }
+   ],
+   "source": [
+    "#x é iterável?\n",
+    "## DICA: use a built-in function len\n",
+    "x = {1,2,3,2,3,5,6,5}\n",
+    "try:\n",
+    "    len(x)\n",
+    "    print(\"Iterável.\")\n",
+    "except TypeError:\n",
+    "    print(\"O valor da Variável NÃO é iterável.\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 53,
+   "id": "e29c3028-31f3-4485-b4e8-714e1c4f3175",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{1, 2, 3, 5, 6}\n"
+     ]
+    }
+   ],
+   "source": [
+    "#imprima o objeto x\n",
+    "\n",
+    "x = {1,2,3,2,3,5,6,5}\n",
+    "print(x)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 55,
+   "id": "24393be1-2502-4fa2-be10-3697df368b91",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "8"
+      ]
+     },
+     "execution_count": 55,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#qual o tamanho de y?\n",
+    "y = [1,2,2,3,3,4,4,4]\n",
+    "\n",
+    "len(y)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 57,
+   "id": "ce6ca358-f4d0-477e-933b-50c8a8339c66",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{1, 2, 3, 4}\n"
+     ]
+    }
+   ],
+   "source": [
+    "#mude o tipo de y para set\n",
+    "\n",
+    "y = [1,2,2,3,3,4,4,4]\n",
+    "stringset = set(y)\n",
+    "print(stringset)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 61,
+   "id": "e5eac4af-52a6-4614-8592-4820c90e7ef8",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "4"
+      ]
+     },
+     "execution_count": 61,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#qual o tamanho de y agora, após mudar a string?\n",
+    "\n",
+    "y = [1,2,2,3,3,4,4,4]\n",
+    "stringset = set(y)\n",
+    "len(stringset)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "40a15aaf-5a7e-400d-95e8-f2d973e6f1cc",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python [conda env:base] *",
+   "language": "python",
+   "name": "conda-base-py"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.7"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
