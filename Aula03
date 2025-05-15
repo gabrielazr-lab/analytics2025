@@ -1,0 +1,1249 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "5cda7ffa-87f9-49b1-9476-1e91dd73c3aa",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'S'"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "name = \"Skywalker\"\n",
+    "#primeira Letra\n",
+    "name[0]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "2d17d679-af0a-4869-b785-dc6aecc9dadf",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'k'"
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# a segunda letra\n",
+    "name[1]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "9e270eef-99bb-401a-937c-09dd5c77e1a0",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'r'"
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# a última letra\n",
+    "name[-1]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "a80dc6e0-cced-4880-9164-e432526b2a83",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'e'"
+      ]
+     },
+     "execution_count": 11,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# a penúltima letra\n",
+    "name[-2]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "aa3b7b8b-3051-4c57-9009-4b19a4f13c8c",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'Sky'"
+      ]
+     },
+     "execution_count": 13,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# do começo até a terceira\n",
+    "name[:3]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "id": "fa40418e-18c5-4a7a-bb2e-6106d24cd56c",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'Skywalk'"
+      ]
+     },
+     "execution_count": 15,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# do começo até a penúltima\n",
+    "name[:-2]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "d71fa2ef-ee72-42c5-b79c-6ef4691f68bf",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'walk'"
+      ]
+     },
+     "execution_count": 17,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# da quarta até a ante-penúltima\n",
+    "name[3:-2]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "id": "3830a25c-975a-4e96-b0cf-93a91549b20e",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'kwle'"
+      ]
+     },
+     "execution_count": 19,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# da segunda até a penúltima de 2 em 2\n",
+    "name[1:-1:2]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "id": "f08b392c-5a51-4121-99c7-bca204133cf8",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'elwk'"
+      ]
+     },
+     "execution_count": 21,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# da penúltima até a segunda de 2 em 2\n",
+    "name[-2:0:-2]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "id": "0cc99504-e280-46d3-be0d-f313bfbb082b",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'Syak'"
+      ]
+     },
+     "execution_count": 23,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# do começo até a penúltima de 2 em 2\n",
+    "name[:-1:2]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "id": "653ff24b-745a-406a-bc87-32c94e4a5378",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'Swk'"
+      ]
+     },
+     "execution_count": 25,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# do começo até a última de 3 em 3\n",
+    "name[::3]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "id": "e7974b87-9635-4219-b9ea-708cb65044a3",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'reklawykS'"
+      ]
+     },
+     "execution_count": 27,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# da úlima até a primeira de um em 1\n",
+    "name[::-1]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "id": "a4c6be92-2f8c-4ad4-adb8-823654c87200",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'kwle'"
+      ]
+     },
+     "execution_count": 29,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# da segunda até a penúltima de 2 em 2\n",
+    "# trocando -1 por 8\n",
+    "name[1:8:2]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "id": "ad2d8d49-80be-494f-b72f-2526b7a4f913",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'kywal'"
+      ]
+     },
+     "execution_count": 31,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# do primeiro k (inclusive) até o segundo k (exceto)\n",
+    "name[-8:-3]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "aa8f68fe-bfc0-474d-bae8-4e8555d5ea70",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#Outros exemplos da utilização da função RANGE"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "1ef0bf3e-7a8b-4200-b29c-4c939ff9c151",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[2, 3, 4, 5, 6]"
+      ]
+     },
+     "execution_count": 1,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Iniciando range em números diferentes de zero\n",
+    "list(range(2,7))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "6a5de2d1-50c9-47dc-84e5-291f9eac1558",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[15, 16, 17, 18, 19, 20]"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# outro exemplo\n",
+    "list( range(15,21) )"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "a30a7ea2-c0fe-4b21-bd33-f4a418d12a74",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[13, 15, 17, 19, 21, 23]"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# de 13 (inclusive) a 25 (exclusive) de 2 em 2\n",
+    "list( range(13,25,2) )"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "d71f0276-c88e-436f-ade2-53606794e371",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[13, 16, 19, 22]"
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# de 13 (inclusive) a 25 (exclusive) de 3 em 3\n",
+    "list( range(13,25,3) )"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "ac70bfa7-9e42-4bd2-8671-67069cc19da3",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[-5, -3, -1, 1, 3, 5, 7, 9]"
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# podemos utilizar números inteiros negativos\n",
+    "list(range(-5,10,2))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "e4c036d5-a37c-4715-8c71-681bed4a7762",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[25, 23, 21, 19, 17]"
+      ]
+     },
+     "execution_count": 11,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# podemos percorrer um range do maior para o menor\n",
+    "list(range(25,15,-2))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "f32827d8-e0d0-4ad4-a5ee-4518a0d40149",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#Acessando chaves de dicionários"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "4b979689-9370-41f1-9f8b-408801c885d4",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# considere o seguinte dicionário\n",
+    "star_wars = {\n",
+    "    'movie_name' : {\n",
+    "        'A New Hope' : {\n",
+    "            'year': 1977,\n",
+    "            'director': 'George Lucas',\n",
+    "            'duration_minutes': 121\n",
+    "        },\n",
+    "        'Return of the Jedi': {\n",
+    "            'year': 1983,\n",
+    "            'director' : 'Richard Marquand',\n",
+    "            'duration_minutes' : 131\n",
+    "        }\n",
+    "    },\n",
+    "    'general_description': 'Adventures through the galaxy.'\n",
+    "}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "id": "4ce4439a-3717-43cf-ba56-4c5b190929cc",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'Adventures through the galaxy.'"
+      ]
+     },
+     "execution_count": 15,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "star_wars['general_description']"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "df418685-f479-4466-9755-d246ab37f355",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'A New Hope': {'year': 1977,\n",
+       "  'director': 'George Lucas',\n",
+       "  'duration_minutes': 121},\n",
+       " 'Return of the Jedi': {'year': 1983,\n",
+       "  'director': 'Richard Marquand',\n",
+       "  'duration_minutes': 131}}"
+      ]
+     },
+     "execution_count": 17,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "star_wars['movie_name']"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "id": "0ff6d23e-d012-4816-a3b1-9068b2776d48",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'year': 1983, 'director': 'Richard Marquand', 'duration_minutes': 131}"
+      ]
+     },
+     "execution_count": 19,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "star_wars['movie_name']['Return of the Jedi']"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "id": "54f34a8b-e41e-4424-acb8-144dfca45123",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "1983"
+      ]
+     },
+     "execution_count": 21,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "star_wars['movie_name']['Return of the Jedi']['year']"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "7898e47b-7130-46d9-9a38-01cb38738e05",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python [conda env:Rafael]",
+   "language": "python",
+   "name": "conda-env-Rafael-py"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.9"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
+
+# exercício 3
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "f1462e52-7ec7-4121-9885-72c1dd4996f4",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['abacaxi\\n', 'cenoura\\n', 'pera\\n', 'uva\\n', 'batata\\n', 'cebola\\n', 'melancia\\n', 'couve\\n', 'alface\\n', 'acelga\\n']\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Leia o arquivo lista_compras.txt\n",
+    "# TODO\n",
+    "f = open(\"lista_compras.txt\", 'r')\n",
+    "\n",
+    "# Coloque cada linha num elemento de uma lista chamada itens\n",
+    "# TODO\n",
+    "itens = f.readlines()\n",
+    "\n",
+    "# Feche o arquivo\n",
+    "# TODO\n",
+    "f.close()\n",
+    "\n",
+    "# Imprimindo a lista\n",
+    "print(itens)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "9e1e620e-dd2a-47c2-854b-4e26d2cc5d9a",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#Use fatiamento!"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "adb4ce17-77d9-46e0-ab7a-027dd48d9a8d",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "abacaxi\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "# imprima o primeiro item da lista itens\n",
+    "## TODO\n",
+    "print(itens[0])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "id": "45e3ee81-85a1-4bbd-ad0d-b9f4811a12c1",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "cenoura\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "# imprima o segundo item da lista itens\n",
+    "## TODO\n",
+    "print(itens[1])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "id": "0cba8ee5-7124-4a6b-9161-d762eb59d3f8",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "acelga\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "# imprima o último elemento da lista itens\n",
+    "## TODO\n",
+    "print(itens[-1])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "id": "c33d4671-e6c0-400c-8730-b8feab07c2fe",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "alface\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "# imprima o penúltimo elemento da lista itens\n",
+    "## TODO\n",
+    "print(itens[-2])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "id": "7c2ebfeb-46cd-4a06-b7e7-7766113d2a7b",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['abacaxi\\n', 'cenoura\\n', 'pera\\n']\n"
+     ]
+    }
+   ],
+   "source": [
+    "# imprima os três primeiros elementos da lista itens\n",
+    "## TODO\n",
+    "print(itens[0:3])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "id": "e1ccd034-d531-489c-aa62-f8c4d55f32a0",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['uva\\n', 'batata\\n', 'cebola\\n']\n"
+     ]
+    }
+   ],
+   "source": [
+    "# imprima do 4º (inclusive) ao 6º (inclusive) elementos da lista itens\n",
+    "## TODO\n",
+    "print(itens[3:6])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "id": "8081637c-72b1-4421-bbf2-628e074af5a9",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['cenoura\\n', 'uva\\n', 'cebola\\n']\n"
+     ]
+    }
+   ],
+   "source": [
+    "# imprima apenas os 2º, 4º e 6º elementos da lista itens\n",
+    "## TODO\n",
+    "print([itens[1], itens[3], itens[5]])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 45,
+   "id": "2e85146d-7a20-4112-9784-4f7204fb566f",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['batata\\n', 'melancia\\n', 'alface\\n']\n"
+     ]
+    }
+   ],
+   "source": [
+    "# imprima apenas os 5º, 7º e 9º elementos da lista itens\n",
+    "## TODO\n",
+    "print([itens[4], itens[6], itens[8]])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 47,
+   "id": "d39449f0-69ae-49e5-abac-5010718e0459",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['uva\\n', 'melancia\\n', 'acelga\\n']\n"
+     ]
+    }
+   ],
+   "source": [
+    "# imprima apenas os 4º, 7º e 10º elementos da lista itens\n",
+    "## TODO\n",
+    "print([itens[3], itens[6], itens[9]])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "4fe18566-6dae-4c86-a1be-d28175094058",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#RANGE\n",
+    "#Range é um objeto para fazer lista de números. Para construir tal objeto, usa-se a built-in function range."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 49,
+   "id": "731c230b-e281-4fe7-b3ee-59d721e5da4e",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# aqui é um exemplo\n",
+    "r = range(5)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 51,
+   "id": "42efe656-b979-4ccf-9365-1126976e0d78",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "range"
+      ]
+     },
+     "execution_count": 51,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# qual o tipo de r?\n",
+    "## TODO\n",
+    "type(r)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 53,
+   "id": "bde78256-92b4-412c-9031-2e97fd6a8949",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "range(0, 5)\n"
+     ]
+    }
+   ],
+   "source": [
+    "# imprima r\n",
+    "## TODO\n",
+    "print(r)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 59,
+   "id": "b82d571d-42a5-4694-bac4-49d453aa41b4",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "list"
+      ]
+     },
+     "execution_count": 59,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Mude o tipo de r para lista\n",
+    "## TODO\n",
+    "\n",
+    "listrange = list(r)\n",
+    "type(listrange)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 61,
+   "id": "ce5664cf-333d-45ae-b192-612f65fe39cb",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[0, 1, 2, 3, 4]\n"
+     ]
+    }
+   ],
+   "source": [
+    "# imprima novamente r\n",
+    "## TODO\n",
+    "print(listrange)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 65,
+   "id": "e62c2a57-a6b9-4f10-aaf0-efae1919cc28",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[15, 20, 25, 30]"
+      ]
+     },
+     "execution_count": 65,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#Exercício\n",
+    "# usando range imprima a seguinte lista\n",
+    "# [15,20,25,30]\n",
+    "## TODO\n",
+    "\n",
+    "list(range(15,35,5))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 67,
+   "id": "91ec1958-5645-4af5-886e-6a96a167c719",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[45, 30, 15, 0, -15]"
+      ]
+     },
+     "execution_count": 67,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#Exercício\n",
+    "# usando range imprima a seguinte lista\n",
+    "# [45,30,15,0,-15]\n",
+    "## TODO\n",
+    "\n",
+    "list(range(45,-30,-15))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "de0f3229-ff36-4269-82f0-4b62c41ccf20",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#Exercício (TWITTER)\n",
+    "#Você pode fazer requisições de dados do twitter para seus projetos. Eles vão retornar para você um dicionário como o abaixo:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 69,
+   "id": "048e2142-6a98-4bd2-80ad-d73dbed43370",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "twitter_post = [{\n",
+    "  \"created_at\": \"Thu Jun 22 21:00:00 +0000 2017\",\n",
+    "  \"id\": 877994604561387500,\n",
+    "  \"id_str\": \"877994604561387520\",\n",
+    "  \"text\": \"Creating a Grocery List Manager Using Angular, Part 1: Add &amp; Display Items https://t.co/xFox78juL1 #Angular\",\n",
+    "  \"truncated\": False,\n",
+    "  \"entities\": {\n",
+    "    \"hashtags\": [{\n",
+    "      \"text\": \"Angular\",\n",
+    "      \"indices\": [103, 111]\n",
+    "    }],\n",
+    "    \"symbols\": [],\n",
+    "    \"user_mentions\": [],\n",
+    "    \"urls\": [{\n",
+    "      \"url\": \"https://t.co/xFox78juL1\",\n",
+    "      \"expanded_url\": \"http://buff.ly/2sr60pf\",\n",
+    "      \"display_url\": \"buff.ly/2sr60pf\",\n",
+    "      \"indices\": [79, 102]\n",
+    "    }]\n",
+    "  },\n",
+    "  \"source\": \"<a href=\\\"http://bufferapp.com\\\" rel=\\\"nofollow\\\">Buffer</a>\",\n",
+    "  \"user\": {\n",
+    "    \"id\": 772682964,\n",
+    "    \"id_str\": \"772682964\",\n",
+    "    \"name\": \"SitePoint JavaScript\",\n",
+    "    \"screen_name\": \"SitePointJS\",\n",
+    "    \"location\": \"Melbourne, Australia\",\n",
+    "    \"description\": \"Keep up with JavaScript tutorials, tips, tricks and articles at SitePoint.\",\n",
+    "    \"url\": \"http://t.co/cCH13gqeUK\",\n",
+    "    \"entities\": {\n",
+    "      \"url\": {\n",
+    "        \"urls\": [{\n",
+    "          \"url\": \"http://t.co/cCH13gqeUK\",\n",
+    "          \"expanded_url\": \"http://sitepoint.com/javascript\",\n",
+    "          \"display_url\": \"sitepoint.com/javascript\",\n",
+    "          \"indices\": [0, 22]\n",
+    "        }]\n",
+    "      },\n",
+    "      \"description\": {\n",
+    "        \"urls\": []\n",
+    "      }\n",
+    "    },\n",
+    "    \"protected\": False,\n",
+    "    \"followers_count\": 2145,\n",
+    "    \"friends_count\": 18,\n",
+    "    \"listed_count\": 328,\n",
+    "    \"created_at\": \"Wed Aug 22 02:06:33 +0000 2012\",\n",
+    "    \"favourites_count\": 57,\n",
+    "    \"utc_offset\": 43200,\n",
+    "    \"time_zone\": \"Wellington\",\n",
+    "  },\n",
+    "}]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 83,
+   "id": "7e93ee22-9b58-4df7-bd26-a21546edbbd6",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'Melbourne, Australia'"
+      ]
+     },
+     "execution_count": 83,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#Seu objetivo é imprimir a localização do usuário que fez o post acima!\n",
+    "## TODO\n",
+    "\n",
+    "twitter_post[0]['user']['location'] ###NÃO ENTENDI O PQ USOU O [0]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "abccf7ea-7196-42c6-9812-60c278e8c2e6",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#Exercício Google maps\n",
+    "#Outro serviço muito usado é o Google maps. Quando você passar um endereço, é possível obter diversas informações deste endereço."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 85,
+   "id": "2bbdccf1-17ed-4b5e-af94-8e6d882f1e81",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "address = {\n",
+    "   \"results\" : [\n",
+    "      {\n",
+    "         \"address_components\" : [\n",
+    "            {\n",
+    "               \"long_name\" : \"1600\",\n",
+    "               \"short_name\" : \"1600\",\n",
+    "               \"types\" : [ \"street_number\" ]\n",
+    "            },\n",
+    "            {\n",
+    "               \"long_name\" : \"Amphitheatre Pkwy\",\n",
+    "               \"short_name\" : \"Amphitheatre Pkwy\",\n",
+    "               \"types\" : [ \"route\" ]\n",
+    "            },\n",
+    "            {\n",
+    "               \"long_name\" : \"Mountain View\",\n",
+    "               \"short_name\" : \"Mountain View\",\n",
+    "               \"types\" : [ \"locality\", \"political\" ]\n",
+    "            },\n",
+    "            {\n",
+    "               \"long_name\" : \"Santa Clara County\",\n",
+    "               \"short_name\" : \"Santa Clara County\",\n",
+    "               \"types\" : [ \"administrative_area_level_2\", \"political\" ]\n",
+    "            },\n",
+    "            {\n",
+    "               \"long_name\" : \"California\",\n",
+    "               \"short_name\" : \"CA\",\n",
+    "               \"types\" : [ \"administrative_area_level_1\", \"political\" ]\n",
+    "            },\n",
+    "            {\n",
+    "               \"long_name\" : \"United States\",\n",
+    "               \"short_name\" : \"US\",\n",
+    "               \"types\" : [ \"country\", \"political\" ]\n",
+    "            },\n",
+    "            {\n",
+    "               \"long_name\" : \"94043\",\n",
+    "               \"short_name\" : \"94043\",\n",
+    "               \"types\" : [ \"postal_code\" ]\n",
+    "            }\n",
+    "         ],\n",
+    "         \"formatted_address\" : \"1600 Amphitheatre Parkway, Mountain View, CA 94043, USA\",\n",
+    "         \"geometry\" : {\n",
+    "            \"location\" : {\n",
+    "               \"lat\" : 37.4224764,\n",
+    "               \"lng\" : -122.0842499\n",
+    "            },\n",
+    "            \"location_type\" : \"ROOFTOP\",\n",
+    "            \"viewport\" : {\n",
+    "               \"northeast\" : {\n",
+    "                  \"lat\" : 37.4238253802915,\n",
+    "                  \"lng\" : -122.0829009197085\n",
+    "               },\n",
+    "               \"southwest\" : {\n",
+    "                  \"lat\" : 37.4211274197085,\n",
+    "                  \"lng\" : -122.0855988802915\n",
+    "               }\n",
+    "            }\n",
+    "         },\n",
+    "         \"place_id\" : \"ChIJ2eUgeAK6j4ARbn5u_wAGqWA\",\n",
+    "         \"types\" : [ \"street_address\" ]\n",
+    "      }\n",
+    "   ],\n",
+    "   \"status\" : \"OK\"\n",
+    "}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 87,
+   "id": "c4b5d493-6ac1-443d-85f3-4881e47ea069",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "37.4224764"
+      ]
+     },
+     "execution_count": 87,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# imprima a latitude do endereço acima\n",
+    "## TODO\n",
+    "address[\"results\"][0][\"geometry\"][\"location\"][\"lat\"]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 89,
+   "id": "422e6936-e90e-45ba-ae27-d7ba40aef311",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "-122.0842499"
+      ]
+     },
+     "execution_count": 89,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# imprima a longitude do endereço acima\n",
+    "## TODO\n",
+    "address[\"results\"][0][\"geometry\"][\"location\"][\"lng\"]"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python [conda env:base] *",
+   "language": "python",
+   "name": "conda-base-py"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.7"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
