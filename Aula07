@@ -1,0 +1,647 @@
+# importando a biblioteca para fazer operações em banco de dados sqlite3
+import sqlite3
+# importando a bibliotecas pandas para transformar dados e tabelas do banco em data frames 
+import pandas as pd
+
+# criaremos a conexão com nosso banco de dados
+# se ele não existir, será criado
+conn = sqlite3.connect("database.db")
+
+# Podemos agora criar tabelas
+# criaremos a tabela (table) tasks com campos (fields) id, description e done
+conn.execute("""
+    CREATE TABLE IF NOT EXISTS tasks
+    (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        description TEXT,
+        done INTEGER
+    )    
+""")
+# após executar uma operação é necessário salvá-la
+conn.commit()
+
+# criaremos agora um registro (row) na tabela tasks
+# o registro terá valor 'Estudar seaborn' para description e 0 para done.
+conn.execute("""
+    INSERT INTO tasks (description, done)
+    VALUES ('Estudar seaborn', 0);    
+""")
+# novamente, após executar o comando é necessário salvar
+conn.commit()
+
+# criaremos agora um registro (row) na tabela tasks
+# o registro terá valor 'Estudar seaborn' para description e 0 para done.
+conn.execute("""
+    INSERT INTO tasks (description, done)
+    VALUES ('Estudar seaborn', 0);    
+""")
+# novamente, após executar o comando é necessário salvar
+conn.commit()
+
+# podemos agora visualizar todos (*) os registros da (FROM) tabela tasks
+results = conn.execute("""
+    SELECT *
+    FROM tasks
+""").fetchall()
+# imprimindo cada resultado
+for result in results:
+    print(result)
+
+# ver os valores de description da (FROM) tabela tasks onde (WHERE) done = 0
+results = conn.execute("""
+    SELECT description
+    FROM tasks
+    WHERE done=0
+""").fetchall()
+# imprimindo cada resultado
+for result in results:
+    print(result)
+
+results = conn.execute("""
+    SELECT description
+    FROM tasks
+    WHERE done = 0 AND description LIKE 'Estudar%'
+""").fetchall()
+
+# imprimindo cada resultado
+for result in results:
+    print(result)
+
+# Atualizar (update) na tabela tasks as linhas (rows) cujo id = 1 fazendo (SET) done = 1
+conn.execute("""
+    UPDATE tasks
+    SET done=1
+    WHERE id=1
+""")
+# salvando as atualizações
+conn.commit()
+
+conn.execute("""
+    UPDATE tasks
+    SET description = 'Estudar matplotlib'
+    WHERE description = 'Estudar seaborn'
+""")
+
+# salvando as atualizações
+conn.commit()
+
+# deletar da (FROM) tabela tasks as linhas (rows) onde id = 1
+conn.execute("""
+    DELETE FROM tasks
+    WHERE id=1
+""")
+conn.commit()
+df = pd.read_sql_query(
+    """
+       SELECT *
+       FROM tasks
+    """,
+    conn
+)
+df
+
+df['done'].value_counts()
+
+results = conn.execute("""
+    SELECT done, COUNT(*) AS done_tasks
+    FROM tasks
+    GROUP BY done;      
+""").fetchall()
+
+for result in results:
+    print(result)
+conn.close()
+
+conn = sqlite3.connect("database_2.db")
+
+conn.execute("""
+    CREATE TABLE categories 
+    (
+      id    INTEGER PRIMARY KEY, 
+      name  TEXT NOT NULL
+    );
+""")
+
+conn.execute(
+    """
+        INSERT INTO categories (name)
+        VALUES
+          ('casa'),
+          ('laser'),
+          ('faculdade')
+    """
+)
+conn.commit()
+
+conn.execute("""
+    CREATE TABLE tasks 
+    (
+      id            INTEGER PRIMARY KEY AUTOINCREMENT, 
+      description   TEXT NOT NULL,
+      done          INTEGER,
+      category_id   INTEGER NOT NULL,
+      FOREIGN KEY (category_id) REFERENCES categories (id)
+    )
+""")
+conn.commit()
+# insert many
+conn.execute(
+    """
+    INSERT INTO 'tasks' (description, done, category_id)
+    VALUES
+      ('Assistir Netflix', 1, 2),
+      ('Estudar matplotlib', 0, 3),
+      ('Estudar seaborn', 0, 3),
+      ('Estudar Pandas', 0, 3),
+      ('Lavar louça', 0, 1)
+    """
+)
+conn.commit()
+
+tasks_with_categories = conn.execute(
+    """
+    SELECT t.id, t.description, t.done, c.name 
+    FROM tasks AS t 
+    INNER JOIN categories AS c
+      ON c.id = t.category_id
+    ORDER BY c.name
+    """
+).fetchall()
+
+for task in tasks_with_categories:
+    print(task)
+
+df = pd.read_sql_query(
+    """
+    SELECT t.id, t.description, t.done, c.name 
+    FROM tasks AS t 
+    INNER JOIN categories AS c
+      ON c.id = t.category_id
+    ORDER BY c.name
+    """,
+    conn
+)
+df
+
+conn.close()
+conn = sqlite3.connect("assets/chinook.db")
+df = pd.read_sql_query(
+    """
+        SELECT 
+    CustomerId, 
+    FirstName || ' ' || LastName AS NomeCompleto, 
+    Country AS País
+FROM customers
+WHERE Country != 'USA'
+ORDER BY Country ASC, NomeCompleto ASC;
+
+    """,
+    conn
+)
+conn.close()
+df
+
+#Fornecer uma consulta que mostre apenas os clientes do Brasil.
+conn = sqlite3.connect("assets/chinook.db")
+df = pd.read_sql_query(
+    """
+    SELECT FirstName || ' ' || LastName AS NomeCompleto, City AS Cidade, State AS Estado, Country AS País
+    FROM customers
+    WHERE Country = 'Brazil'
+    ORDER BY NomeCompleto ASC
+    """,
+    conn
+)
+conn.close()
+df
+
+#Fornecer uma consulta que mostre as faturas dos clientes que são do Brasil. 
+#A tabela resultante deve mostrar o nome completo do cliente, ID da fatura, data da fatura e país de cobrança.
+
+#|| ' ' || - Operado para Conectar Atributos
+
+conn = sqlite3.connect("assets/chinook.db")
+df = pd.read_sql_query(
+    """
+    SELECT 
+        c.FirstName || ' ' || c.LastName AS Nome,
+        i.InvoiceId AS IDFatura,
+        i.InvoiceDate AS DataFatura,
+        i.BillingCountry AS País
+    FROM customers c
+    JOIN invoices i ON c.CustomerId = i.CustomerId
+    WHERE c.Country = 'Brazil'
+    ORDER BY Nome ASC
+
+    """,
+    conn
+)
+conn.close()
+df
+
+#Fornecer uma consulta que mostre apenas os funcionários que são agentes de vendas.
+conn = sqlite3.connect("assets/chinook.db")
+df = pd.read_sql_query(
+    """
+    SELECT EmployeeId, FirstName || ' ' || LastName AS NomeCompleto, Title
+    FROM employees
+    WHERE Title = 'Sales Support Agent'
+    ORDER BY NomeCompleto ASC
+
+    """,
+    conn
+)
+conn.close()
+df
+
+
+#Fornecer uma consulta que mostre uma lista única de países de cobrança da tabela de faturas.
+#DISTINCT = "Mostre apenas valores únicos (sem repetições)"
+conn = sqlite3.connect("assets/chinook.db")
+df = pd.read_sql_query(
+    """
+    SELECT DISTINCT BillingCountry
+    FROM Invoices
+    ORDER BY BillingCountry ASC
+
+    """,
+    conn
+)
+conn.close()
+df
+
+#Fornecer uma consulta que mostre as faturas associadas a cada agente de vendas. 
+#A tabela resultante deve incluir o nome completo do agente de vendas.
+conn = sqlite3.connect("assets/chinook.db")
+df = pd.read_sql_query(
+    """
+    SELECT 
+        e.FirstName || ' ' || e.LastName AS NomeAgente,
+        i.InvoiceId,
+        i.InvoiceDate,
+        i.BillingCountry
+    FROM Invoices i
+    JOIN Customers c ON i.CustomerId = c.CustomerId
+    JOIN Employees e ON c.SupportRepId = e.EmployeeId
+    WHERE e.Title = 'Sales Support Agent'
+    ORDER BY NomeAgente, i.InvoiceId
+
+    """,
+    conn
+)
+conn.close()
+df
+
+#É possível então saber quantas vendas e qual valor cada agente fez. Como?
+conn = sqlite3.connect("assets/chinook.db")
+df = pd.read_sql_query(
+    """
+    SELECT
+    e.FirstName || ' ' || e.LastName AS NomeAgente,
+    COUNT(i.InvoiceId) AS NumeroVendas,
+    SUM(i.Total) AS ValorTotalVendas
+    FROM Invoices i
+    JOIN Customers c ON i.CustomerId = c.CustomerId
+    JOIN Employees e ON c.SupportRepId = e.EmployeeId
+    GROUP BY NomeAgente
+    ORDER BY ValorTotalVendas DESC;
+
+    """,
+    conn
+)
+conn.close()
+df
+
+#Fornecer uma consulta que mostre o valor total da fatura, nome do cliente, país e nome do agente de vendas de todas as faturas e clientes.
+conn = sqlite3.connect("assets/chinook.db")
+df = pd.read_sql_query(
+    """
+    SELECT
+        i.Total AS ValorTotalFatura,
+        c.FirstName || ' ' || c.LastName AS NomeCliente,
+        c.Country AS País,
+        e.FirstName || ' ' || e.LastName AS NomeAgente
+    FROM Invoices i
+    JOIN Customers c ON i.CustomerId = c.CustomerId
+    JOIN Employees e ON c.SupportRepId = e.EmployeeId
+
+    """,
+    conn
+)
+conn.close()
+df
+
+#É possível agora saber qual nosso melhor cliente por valor ou quantidade vendida. Como?
+#Cliente com maior valor total de compras
+
+conn = sqlite3.connect("assets/chinook.db")
+df = pd.read_sql_query(
+    """
+        SELECT
+        c.FirstName || ' ' || c.LastName AS NomeCliente,
+        COUNT(i.InvoiceId) AS NumeroVendas,
+        SUM(i.Total) AS ValorTotalCompras
+    FROM Invoices i
+    JOIN Customers c ON i.CustomerId = c.CustomerId
+    GROUP BY NomeCliente
+    ORDER BY ValorTotalCompras DESC
+    LIMIT 1;
+
+    """,
+    conn
+)
+conn.close()
+df
+
+#Cliente com maior quantidade de vendas (faturas)
+
+conn = sqlite3.connect("assets/chinook.db")
+df = pd.read_sql_query(
+    """
+        SELECT
+            c.FirstName || ' ' || c.LastName AS NomeCliente,
+            COUNT(i.InvoiceId) AS NumeroVendas,
+            SUM(i.Total) AS ValorTotalCompras
+        FROM Invoices i
+        JOIN Customers c ON i.CustomerId = c.CustomerId
+        GROUP BY NomeCliente
+        ORDER BY NumeroVendas DESC
+        LIMIT 1;
+
+    """,
+    conn
+)
+conn.close()
+df
+
+#Quantas faturas houve em 2009 e 2011? Quais são as vendas totais respectivas para cada um desses anos?
+conn = sqlite3.connect("assets/chinook.db")
+df = pd.read_sql_query(
+    """
+    SELECT 
+        STRFTIME('%Y', InvoiceDate) AS Ano,
+        COUNT(InvoiceId) AS QuantidadeFaturas,
+        SUM(Total) AS VendasTotais
+    FROM Invoices
+    WHERE Ano IN ('2009', '2011')
+    GROUP BY Ano
+    ORDER BY Ano;
+    """,
+    conn
+)
+conn.close()
+df
+
+#Analisando a tabela invoices, forneça uma consulta que CONTE o número de itens para o ID da fatura 37.
+
+conn = sqlite3.connect("assets/chinook.db")
+df = pd.read_sql_query(
+    """
+    SELECT InvoiceId, COUNT(*) AS NumeroItens
+    FROM Invoice_items
+    WHERE InvoiceId = 37
+    GROUP BY InvoiceId
+    """,
+    conn
+)
+conn.close()
+df
+
+#Analisando a tabela invoice_items, forneça uma consulta que CONTE o número de itens para cada fatura. 
+#DICA: AGRUPAR POR
+conn = sqlite3.connect("assets/chinook.db")
+df = pd.read_sql_query(
+    """
+    SELECT InvoiceId, COUNT(*) AS NumeroItens
+    FROM Invoice_items
+    GROUP BY InvoiceId
+    ORDER BY NumeroItens DESC
+    """,
+    conn
+)
+conn.close()
+df
+
+#Fornecer uma consulta que inclua o nome da faixa para cada linha da tabela de itens da fatura.
+conn = sqlite3.connect("assets/chinook.db")
+df = pd.read_sql_query(
+    """
+    SELECT il.InvoiceLineId,
+           il.InvoiceId,
+           il.TrackId,
+           t.Name AS TrackName
+    FROM Invoice_Items il
+    JOIN Tracks t ON il.TrackId = t.TrackId
+    """,
+    conn
+)
+conn.close()
+df
+
+#Forneça uma consulta que mostre o nome da música e o artista para cada linha da tabela de itens da fatura.
+conn = sqlite3.connect("assets/chinook.db")
+df = pd.read_sql_query(
+    """  
+    SELECT 
+        il.InvoiceLineId,
+        t.Name AS TrackName,
+        ar.Name AS ArtistName
+    FROM Invoice_Items il
+    JOIN Tracks t ON il.TrackId = t.TrackId
+    JOIN Albums al ON t.AlbumId = al.AlbumId
+    JOIN Artists ar ON al.ArtistId = ar.ArtistId
+
+    """,
+    conn
+)
+conn.close()
+df
+
+#Fornecer uma consulta que mostre o número de faturas por país. DICA: AGRUPAR POR
+# TODO
+conn = sqlite3.connect("assets/chinook.db")
+df = pd.read_sql_query(
+    """
+    SELECT 
+    BillingCountry, 
+    COUNT(InvoiceId) AS NumeroDeFaturas
+    FROM Invoices
+    GROUP BY BillingCountry
+    ORDER BY NumeroDeFaturas DESC
+
+    """,
+    conn
+)
+conn.close()
+df
+
+#Forneça uma consulta que mostra o número total de música por playlist. O nome e ID das playlists devem aparecer na tabela resultante.
+conn = sqlite3.connect("assets/chinook.db")
+df = pd.read_sql_query(
+    """    
+    SELECT 
+        p.PlaylistId, 
+        p.Name AS NomePlaylist, 
+        COUNT(pt.TrackId) AS NumeroDeMusicas
+    FROM playlists p
+    JOIN playlist_track pt ON p.PlaylistId = pt.PlaylistId
+    GROUP BY p.PlaylistId, p.Name
+    ORDER BY NumeroDeMusicas DESC
+    """,
+    conn
+)
+conn.close()
+df
+
+#Forneça uma consulta que mostra todos os nomes das músicas, mas não mostra ids. 
+#A tabela resultante deve incluir o nome do álbum, tipo de media e gênero.
+
+conn = sqlite3.connect("assets/chinook.db")
+df = pd.read_sql_query(
+    """    
+    SELECT 
+        t.Name AS NomeDaMusica,
+        al.Title AS NomeDoAlbum,
+        mt.Name AS TipoMidia,
+        g.Name AS Genero
+    FROM tracks t
+    JOIN albums al ON t.AlbumId = al.AlbumId
+    JOIN media_types mt ON t.MediaTypeId = mt.MediaTypeId
+    JOIN genres g ON t.GenreId = g.GenreId
+    ORDER BY t.Name
+    """,
+    conn
+)
+conn.close()
+df
+
+#Fornecer uma consulta que mostra o número total de vendas de cada vendedor.
+conn = sqlite3.connect("assets/chinook.db")
+df = pd.read_sql_query(
+    """
+    SELECT 
+        e.FirstName || ' ' || e.LastName AS NomeVendedor,
+        COUNT(i.InvoiceId) AS TotalDeVendas
+    FROM employees e
+    JOIN customers c ON e.EmployeeId = c.SupportRepId
+    JOIN invoices i ON c.CustomerId = i.CustomerId
+    WHERE e.Title = 'Sales Support Agent'
+    GROUP BY e.EmployeeId
+    ORDER BY TotalDeVendas DESC
+
+    """,
+    conn
+)
+conn.close()
+df
+
+#Qual vendedor (sales agent) mais vendeu em 2009?
+conn = sqlite3.connect("assets/chinook.db")
+df = pd.read_sql_query(
+    """
+    SELECT 
+        e.FirstName || ' ' || e.LastName AS NomeVendedor,
+        SUM(i.Total) AS TotalVendas
+    FROM employees e
+    JOIN customers c ON e.EmployeeId = c.SupportRepId
+    JOIN invoices i ON c.CustomerId = i.CustomerId
+    WHERE e.Title = 'Sales Support Agent'
+      AND strftime('%Y', i.InvoiceDate) = '2009'
+    GROUP BY e.EmployeeId
+    ORDER BY TotalVendas DESC
+    LIMIT 1
+
+    """,
+    conn
+)
+conn.close()
+df
+
+#Qual vendedor (sales agent) mais vendeu considerando toda base de dados?
+conn = sqlite3.connect("assets/chinook.db")
+df = pd.read_sql_query(
+    """
+    SELECT 
+        e.FirstName || ' ' || e.LastName AS NomeVendedor,
+        SUM(i.Total) AS TotalVendas
+    FROM employees e
+    JOIN customers c ON e.EmployeeId = c.SupportRepId
+    JOIN invoices i ON c.CustomerId = i.CustomerId
+    WHERE e.Title = 'Sales Support Agent'
+    GROUP BY e.EmployeeId
+    ORDER BY TotalVendas DESC
+    LIMIT 1
+
+    """,
+    conn
+)
+conn.close()
+df
+
+#Forneça uma consulta que mostra o número de clientes inscritos para cada vendedor (sales agente).
+conn = sqlite3.connect("assets/chinook.db")
+df = pd.read_sql_query(
+    """
+    SELECT 
+        e.FirstName || ' ' || e.LastName AS NomeVendedor,
+        COUNT(c.CustomerId) AS NumeroDeClientes
+    FROM employees e
+    JOIN customers c ON e.EmployeeId = c.SupportRepId
+    WHERE e.Title = 'Sales Support Agent'
+    GROUP BY e.EmployeeId
+    ORDER BY NumeroDeClientes DESC
+
+    """,
+    conn
+)
+conn.close()
+df
+
+#Forneça uma consulta que mostra o total de vendas por país.
+conn = sqlite3.connect("assets/chinook.db")
+df = pd.read_sql_query(
+    """
+    SELECT 
+        BillingCountry AS Pais,
+        SUM(Total) AS TotalVendas
+    FROM invoices
+    GROUP BY BillingCountry
+    ORDER BY TotalVendas DESC
+
+    """,
+    conn
+)
+conn.close()
+df
+
+#Forneça uma consulta que mostra a faixa mais comprada de 2013.
+conn = sqlite3.connect("assets/chinook.db")
+df = pd.read_sql_query(
+    """
+    SELECT
+        t.Name AS Faixa,
+        COUNT(ii.TrackId) AS QuantidadeComprada
+    FROM invoice_items ii
+    JOIN invoices i ON ii.InvoiceId = i.InvoiceId
+    JOIN tracks t ON ii.TrackId = t.TrackId
+    WHERE strftime('%Y', i.InvoiceDate) = '2013'
+    GROUP BY ii.TrackId
+    ORDER BY QuantidadeComprada DESC
+    LIMIT 1
+
+    """,
+    conn
+)
+conn.close()
+df
+
+#Forneça uma consulta que mostra os top 3 artistas mais vendidos de toda base de dados.
+conn = sqlite3.connect("assets/chinook.db")
+df = pd.read_sql_query(
+    """
+
+    """,
+    conn
+)
+conn.close()
+df
