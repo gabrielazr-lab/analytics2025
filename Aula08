@@ -1,0 +1,343 @@
+# Instalação
+!pip install pg8000
+Requirement already satisfied: pg8000 in c:\users\rafae\anaconda3\lib\site-packages (1.31.2)
+Requirement already satisfied: python-dateutil>=2.8.2 in c:\users\rafae\anaconda3\lib\site-packages (from pg8000) (2.9.0.post0)
+Requirement already satisfied: scramp>=1.4.5 in c:\users\rafae\anaconda3\lib\site-packages (from pg8000) (1.4.5)
+Requirement already satisfied: six>=1.5 in c:\users\rafae\anaconda3\lib\site-packages (from python-dateutil>=2.8.2->pg8000) (1.16.0)
+Requirement already satisfied: asn1crypto>=1.5.1 in c:\users\rafae\anaconda3\lib\site-packages (from scramp>=1.4.5->pg8000) (1.5.1)
+# importação
+import pg8000.native
+# criaremos a conexão com nosso banco de dados
+DB_HOST = "127.0.0.1" # Endereço do servidor de banco de dados
+DB_NAME = "postgres" # Nome do banco de dados
+DB_USER = "postgres" # Usuário do banco de dados
+DB_PASSWORD = "0000" # Senha do banco de dados
+DB_PORT = 5432 # Porta do banco de dados
+
+try:
+    # Conectando ao banco de dados
+    conn = pg8000.native.Connection(
+        host=DB_HOST,
+        database=DB_NAME,
+        user=DB_USER,
+        password=DB_PASSWORD,
+        port=DB_PORT
+    )
+    print("Tudo certo!")
+except Exception as e:
+    print("Erro:", e)
+finally:
+    if conn:
+        conn.close()
+
+# Podemos agora criar tabelas 
+# alguns bancos como o MongoDB não possuem o conceito de tabelas, mas sim coleções
+# criaremos a tabela (table) cars com campos (fields) id, brand, model e year
+# observe que a sintaxe é similar ao SQLite3 mas não é idêntica
+# VARCHAR é usado para strings de tamanho variável, INT para inteiros
+conn = pg8000.native.Connection(
+    host=DB_HOST,
+    database=DB_NAME,
+    user=DB_USER,
+    password=DB_PASSWORD,
+    port=DB_PORT
+)
+conn.run("""
+    CREATE TABLE cars (
+        brand VARCHAR(255),
+        model VARCHAR(255),
+        year INT
+    );  
+""")
+conn.close()
+
+# criaremos agora um registro (row) na tabela cars
+# Novamente a nomencratura pode variar de banco para banco
+conn = pg8000.native.Connection(
+    host=DB_HOST,
+    database=DB_NAME,
+    user=DB_USER,
+    password=DB_PASSWORD,
+    port=DB_PORT
+)
+conn.run("""
+    INSERT INTO cars (brand, model, year)
+    VALUES ('Ford', 'Mustang', 1964);
+""")
+conn.close()
+# criaremos agora um segundo registro (row) na tabela cars
+# Novamente a nomencratura pode variar de banco para banco
+conn = pg8000.native.Connection(
+    host=DB_HOST,
+    database=DB_NAME,
+    user=DB_USER,
+    password=DB_PASSWORD,
+    port=DB_PORT
+)
+conn.run("""
+    INSERT INTO cars (brand, model, year)
+    VALUES ('Fiat', 'Uno', 1989);
+""")
+conn.close()
+
+# criaremos agora um registro (row) na tabela tasks
+# Novamente a nomencratura pode variar de banco para banco
+conn = pg8000.native.Connection(
+    host=DB_HOST,
+    database=DB_NAME,
+    user=DB_USER,
+    password=DB_PASSWORD,
+    port=DB_PORT
+)
+results = conn.run("""
+    SELECT * FROM cars;
+""")
+for result in results:
+    print(result)
+conn.close()
+
+conn = pg8000.native.Connection(
+    host=DB_HOST,
+    database=DB_NAME,
+    user=DB_USER,
+    password=DB_PASSWORD,
+    port=DB_PORT
+)
+results = conn.run("""
+    SELECT model, year 
+    FROM cars
+    WHERE year > 1980;
+""")
+for result in results:
+    print(result)
+conn.close()
+# Atualizar (update) na tabela tasks as linhas (rows) cujo model = UNO
+# fazendo (SET) year = 1980
+conn = pg8000.native.Connection(
+    host=DB_HOST,
+    database=DB_NAME,
+    user=DB_USER,
+    password=DB_PASSWORD,
+    port=DB_PORT
+)
+conn.run("""
+    UPDATE cars
+    SET year = 1980
+    WHERE model = 'Uno';
+""")
+results = conn.run("""
+    SELECT * FROM cars;
+""")
+for result in results:
+    print(result)
+    conn.close()
+
+# deletar da (FROM) tabela tasks as linhas (rows) onde id = 1
+conn = pg8000.native.Connection(
+    host=DB_HOST,
+    database=DB_NAME,
+    user=DB_USER,
+    password=DB_PASSWORD,
+    port=DB_PORT
+)
+conn.run("""
+    DELETE FROM cars
+    WHERE model = 'Uno';
+""")
+results = conn.run("""
+    SELECT * FROM cars;
+""")
+for result in results:
+    print(result)
+conn.close()
+
+#Outras bibliotecas para conexão
+# https://www.psycopg.org/docs/
+#pip install psycopg2
+import psycopg2
+
+try:
+    # Conectando ao banco de dados
+    conn = psycopg2.connect(
+        f"dbname={DB_NAME} user={DB_USER} port={DB_PORT} host={DB_HOST} password={DB_PASSWORD}")
+    print("Tudo certo!")
+except Exception as e:
+    print("Erro:", e)
+finally:
+    if conn:
+        conn.close()
+
+#Exemplo usando Psycopg2
+import pandas as pd
+conn = psycopg2.connect(
+    f"dbname={DB_NAME} user={DB_USER} port={DB_PORT} host={DB_HOST} password={DB_PASSWORD}")
+cursor = conn.cursor()
+cursor.execute(
+    "SELECT * FROM cars;"
+)
+
+results = cursor.fetchall()
+for result in results:
+    print(result)
+conn.close()
+
+from sqlalchemy import create_engine, MetaData, Table, select
+
+# Criando uma engine de conexão com o banco de dados PostgreSQL
+engine = create_engine(f"postgresql+psycopg2://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}")
+# Criando a conexão
+connection = engine.connect()
+# Instanciando o MetaData
+metadata = MetaData()
+# Carregando a tabela 'cars' do banco de dados
+cars = Table('cars', metadata, autoload_with=engine)
+# criando uma consulta para selecionar todos os registros da tabela 'cars'
+stmt = select(cars)
+# Executando a consulta e obtendo os resultados
+results = connection.execute(stmt)
+for result in results:
+    print(result)
+connection.close()
+
+from sqlalchemy import create_engine, text
+from sqlalchemy.orm import sessionmaker
+
+# 1. Cria a engine
+engine = create_engine(f"postgresql+psycopg2://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}")
+
+# 2. Cria a session
+Session = sessionmaker(bind=engine)
+session = Session()
+
+# 3. Escreve a consulta SQL pura
+sql = text("SELECT * FROM cars;")
+
+# 4. Executa a consulta e pega os resultados
+results = session.execute(sql)
+
+# 5. Itera sobre os registros
+for result in results:
+    print(result)  # transforma em dicionário para facilitar o uso
+
+# 6. Fecha a session
+session.close()
+
+#Integração com pandas
+import pandas as pd
+from sqlalchemy import create_engine
+
+# Criando uma engine de conexão com o banco de dados PostgreSQL
+engine = create_engine(f"postgresql+psycopg2://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}")
+
+# Consulta SQL
+query = "SELECT * FROM cars"
+
+# Lê os dados diretamente em um DataFrame
+df = pd.read_sql(query, engine)
+
+# Fechando a conexão com o banco de dados
+engine.dispose()
+
+# Mostra os dados
+df
+
+from sqlalchemy import select
+import pandas as pd
+
+from sqlalchemy import Table, MetaData
+
+metadata = MetaData()
+cars = Table("cars", metadata, autoload_with=engine)
+
+stmt = select(cars)
+df = pd.read_sql(stmt, engine)
+df
+
+#Exercício
+#Faça um tutorial parecido com esse explorando novas bibliotecas de conexão com novos bancos de dados. 
+#Seu tutorial deve ter no mínimo:
+
+#Conexão com o banco de dados
+#Criação de tabela
+#Criação de registros no banco de dados
+#Leitura de registros sem filtro
+#Leitura de registros com filtro
+#Atualização de registro
+#Deleção de registro
+#Integração com Pandas
+
+pip install psycopg2-binary pandas
+
+# Conectando ao banco Supabase
+import psycopg2
+import pandas as pd
+
+# Conectar ao Supabase
+conn = psycopg2.connect(
+    "postgresql://postgres:[SUA-SENHA]@db.mwfuyletxkxxmgnpvfjj.supabase.co:5432/postgres"
+)
+cur = conn.cursor()
+print("Conectado com sucesso!")
+
+cur.execute("""
+CREATE TABLE IF NOT EXISTS professores (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100),
+    departamento VARCHAR(100)
+);
+
+CREATE TABLE IF NOT EXISTS disciplinas (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100),
+    carga_horaria INT,
+    professor_id INT REFERENCES professores(id)
+);
+""")
+conn.commit()
+print("Tabelas criadas!")
+
+#Inserção de registros
+# Inserindo professores
+cur.execute("INSERT INTO professores (nome, departamento) VALUES (%s, %s)", ("Carlos Almeida", "Engenharia"))
+cur.execute("INSERT INTO professores (nome, departamento) VALUES (%s, %s)", ("Fernanda Lima", "Matemática"))
+
+# Inserindo disciplinas
+cur.execute("INSERT INTO disciplinas (nome, carga_horaria, professor_id) VALUES (%s, %s, %s)", ("Cálculo I", 60, 2))
+cur.execute("INSERT INTO disciplinas (nome, carga_horaria, professor_id) VALUES (%s, %s, %s)", ("Mecânica dos Fluidos", 80, 1))
+
+conn.commit()
+print("Dados inseridos!")
+
+#Leitura de registros (sem filtro)
+cur.execute("SELECT * FROM disciplinas")
+for linha in cur.fetchall():
+    print(linha)
+
+#Leitura com Filtro (disciplinas com + de 60 horas)
+cur.execute("SELECT nome FROM disciplinas WHERE carga_horaria > 60")
+for linha in cur.fetchall():
+    print(linha)
+
+#Atualização de Dados
+cur.execute("UPDATE professores SET departamento = 'Física' WHERE nome = 'Fernanda Lima'")
+conn.commit()
+print("Departamento atualizado!")
+
+#Deleção de registros
+cur.execute("DELETE FROM disciplinas WHERE nome = 'Cálculo I'")
+conn.commit()
+print("Disciplina deletada!")
+
+from sqlalchemy import create_engine
+import pandas as pd
+
+# Conexão usando SQLAlchemy (sem avisos)
+engine = create_engine("postgresql+psycopg2://postgres:[SUA-SENHA]@db.mwfuyletxkxxmgnpvfjj.supabase.co:5432/postgres")
+
+# Usando pandas com SQLAlchemy
+df = pd.read_sql("SELECT * FROM professores", engine)
+df
+
+cur.close()
+conn.close()
+print("Conexão encerrada.")
