@@ -1,0 +1,302 @@
+#pandas
+# bibliotecas
+import pandas as pd             # objetos DataFrame e Series 
+import numpy as np              # objetos arrays e matrizes
+df = pd.read_csv('C:/Users/maria/OneDrive/Área de Trabalho/Eletiva de Dados/Atividades/09/train_titanic.csv')
+# 3 primeiras linhas
+df.head(3)
+#Qual a porcentagem de passageiros sobreviveram ao titanic?
+
+# Número de sobreviventes
+sobreviventes = df['Survived'].sum()
+
+# Total de passageiros
+total_passageiros = len(df)
+
+# Cálculo
+percentual_sobreviventes = (sobreviventes / total_passageiros) * 100
+print(f"{percentual_sobreviventes:.2f}% dos passageiros sobreviveram ao Titanic.")
+#Qual a porcentagem de passageiros que viajaram de terceira classe?
+
+# Número de passagueiros de terceira classe
+terceira_classe = df[df['Pclass'] == 3]
+
+# Número de passageiros da terceira classe
+num_terceira_classe = len(terceira_classe)
+
+# Total de passageiros
+total_passageiros = len(df)
+
+# Cálculo
+percentual_3_classe = (num_terceira_classe / total_passageiros) * 100
+print(f"{percentual_3_classe:.2f}% dos passageiros é da 3º Classe.")
+#Quais as idades médias e medianas dos passageiros?
+
+IdadeMedia = df['Age'].mean() # Média
+IdadeMediana = df['Age'].median() # Mediana
+
+print(f"A média da idade é {IdadeMedia:.2f} anos e a mediana é {IdadeMediana:.2f} anos.")
+#Quais valores das tarifas médias e medianas foram pagos pelos passageiros?
+
+ValorMedio = df['Fare'].mean() #Média
+ValorMediano = df['Fare'].median() #Mediana
+
+print(f"A mádia dos valores das passagens é {ValorMedio:.2f} reais e a mediana é {ValorMediano:.2f} reais")
+#Quais cabines mais frequentes nos dados e qual a frequência?
+
+UsabilidadeCabines= df['Cabin'].value_counts()
+print(UsabilidadeCabines)
+#Quantos valores estão faltantes na coluna Cabin?
+
+faltantes_cabin = df['Cabin'].isna().sum()
+print(f"Quantidade de valores faltantes na coluna 'Cabin': {faltantes_cabin}")
+#Sobreviveram mais mulheres ou homens?
+
+# Agrupar os sobreviventes por sexo
+sobreviventes_por_sexo = df[df['Survived'] == 1]['Sex'].value_counts()
+print(sobreviventes_por_sexo)
+#Quais as porcentagens de sobreviventes em cada classe?
+
+#Agupar Classe dos sobreviventes e suas porcentagens
+Sobreviventes_por_classe = df[df['Survived'] == 1]['Pclass'].value_counts(normalize=True)*100 # (normalize=True) para retornar o percentual de cada categoria em relação ao total
+print(Sobreviventes_por_classe)
+#Os nomes vem com os títulos. Qual é o título mais frequente e qual a frequência?
+# Extrair os títulos dos nomes
+df['Title'] = df['Name'].str.extract(r',\s*([^\.]+)\.')
+
+# Contar os títulos
+frequencia_titulos = df['Title'].value_counts()
+
+# Mostrar todos
+print("Frequência de cada título:")
+print(frequencia_titulos)
+
+# Mostrar o título mais comum
+titulo_mais_comum = frequencia_titulos.idxmax()
+frequencia_mais_comum = frequencia_titulos.max()
+
+print(f"\nO título mais frequente é '{titulo_mais_comum}' com {frequencia_mais_comum} ocorrências.")
+#Qual a taxa de sobreviventes considerando apenas menores de 12 anos?
+
+# Filtrar menores de 12 anos
+menores_12 = df[df['Age'] < 12]
+
+# Contar quantos desses sobreviveram
+sobreviveram_menores_12 = menores_12['Survived'].sum()
+
+# Total de menores de 12 anos
+total_menores_12 = len(menores_12)
+
+# Calcular a taxa de sobrevivência
+taxa_sobrevivencia_menores_12 = (sobreviveram_menores_12 / total_menores_12) * 100
+
+print(f"A taxa de sobrevivência entre menores de 12 anos é de {taxa_sobrevivencia_menores_12:.2f}%")
+#A primeira letra da cabine representa o deck do barco. Desprezando os dados faltantes, qual porcertagem de sobreviventes por deck?
+
+# Remover linhas com valores ausentes em Cabin
+df_com_cabine = df.dropna(subset=['Cabin'])
+
+# Criar coluna com apenas a letra do deck (primeira letra da cabine)
+df_com_cabine['Deck'] = df_com_cabine['Cabin'].str[0]
+
+# Filtrar apenas os sobreviventes
+sobreviventes = df_com_cabine[df_com_cabine['Survived'] == 1]
+
+# Calcular proporção de sobreviventes por deck
+porcentagem_sobreviventes_por_deck = sobreviventes['Deck'].value_counts(normalize=True) * 100
+
+# Mostrar resultado com 2 casas decimais
+print(porcentagem_sobreviventes_por_deck.round(2))
+#Qual a porcentagem de sobreviventes considerando apenas os decks faltantes?
+# Filtrar passageiros sem informação de cabine
+sem_cabine = df[df['Cabin'].isna()]
+
+# Número de passageiros sem cabine
+total_sem_cabine = len(sem_cabine)
+
+# Número de sobreviventes entre os que não têm cabine
+sobreviventes_sem_cabine = sem_cabine['Survived'].sum()
+
+# Porcentagem de sobreviventes
+porcentagem_sobreviventes_sem_cabine = (sobreviventes_sem_cabine / total_sem_cabine) * 100
+
+print(f"A porcentagem de sobreviventes entre os passageiros sem informação de deck é {porcentagem_sobreviventes_sem_cabine:.2f}%")
+#Qual porcentagem de mulheres da primeira classe sobreviveram?
+# Filtrar mulheres da 1ª classe
+mulheres_primeira_classe = df[(df['Sex'] == 'female') & (df['Pclass'] == 1)]
+
+# Total de mulheres da 1ª classe
+total_mulheres_primeira = len(mulheres_primeira_classe)
+
+# Número de sobreviventes nesse grupo
+sobreviventes_mulheres_primeira = mulheres_primeira_classe['Survived'].sum()
+
+# Porcentagem de sobrevivência
+porcentagem_sobrevivencia = (sobreviventes_mulheres_primeira / total_mulheres_primeira) * 100
+
+print(f"A porcentagem de mulheres da 1ª classe que sobreviveram é {porcentagem_sobrevivencia:.2f}%")
+#Por qual portão os passageiros da primeira classe mais embarcaram?
+
+# Filtrar apenas passageiros da 1ª classe
+primeira_classe = df[df['Pclass'] == 1]
+
+# Contar frequência de embarque por portão
+embarques_por_portao = primeira_classe['Embarked'].value_counts()
+
+# Exibir resultados
+print("Frequência de embarque por portão (1ª classe):")
+print(embarques_por_portao)
+
+# Mostrar o portão mais comum
+portao_mais_comum = embarques_por_portao.idxmax()
+qtd_mais_comum = embarques_por_portao.max()
+
+print(f"\nO portão mais comum de embarque na 1ª classe foi '{portao_mais_comum}' com {qtd_mais_comum} passageiros.")
+#Qual a idade média entre as mulheres sobreviventes? E entre as mulheres não sobreviventes?
+
+# Mulheres sobreviventes
+mulheres_sobreviventes = df[(df['Sex'] == 'female') & (df['Survived'] == 1)]
+idade_media_sobreviventes = mulheres_sobreviventes['Age'].mean()
+
+# Mulheres não sobreviventes
+mulheres_nao_sobreviventes = df[(df['Sex'] == 'female') & (df['Survived'] == 0)]
+idade_media_nao_sobreviventes = mulheres_nao_sobreviventes['Age'].mean()
+
+print(f"A idade média das mulheres sobreviventes é {idade_media_sobreviventes:.2f} anos.")
+print(f"A idade média das mulheres não sobreviventes é {idade_media_nao_sobreviventes:.2f} anos.")
+#Qual a idade mediana entre os homens da primeira classe que sobreviveram? 
+#Qual a idade mediana entre os homens da primeira classe que não sobreviveram?
+
+# Homens da 1ª classe que sobreviveram
+homens_1classe_sobreviventes = df[(df['Sex'] == 'male') & (df['Pclass'] == 1) & (df['Survived'] == 1)]
+idade_mediana_sobreviventes = homens_1classe_sobreviventes['Age'].median()
+
+# Homens da 1ª classe que não sobreviveram
+homens_1classe_nao_sobreviventes = df[(df['Sex'] == 'male') & (df['Pclass'] == 1) & (df['Survived'] == 0)]
+idade_mediana_nao_sobreviventes = homens_1classe_nao_sobreviventes['Age'].median()
+
+print(f"A idade mediana dos homens da 1ª classe que sobreviveram é {idade_mediana_sobreviventes:.2f} anos.")
+print(f"A idade mediana dos homens da 1ª classe que não sobreviveram é {idade_mediana_nao_sobreviventes:.2f} anos.")
+#Considerando as possíveis ternas (deck, local de embarque, sexo), qual terna teve maior porcentagem de não sobreviventes?
+
+# Filtrar apenas os não sobreviventes
+nao_sobreviventes = df[df['Survived'] == 0]
+
+# Extrair o deck da cabine (primeira letra), somente onde Cabin não é nulo
+cabine = nao_sobreviventes['Cabin'].dropna().map(lambda x: str(x)[0]).value_counts(normalize=True) * 100
+
+# Contar gênero entre não sobreviventes
+genero = nao_sobreviventes['Sex'].value_counts(normalize=True) * 100
+
+# Contar local de embarque entre não sobreviventes
+embarque = nao_sobreviventes['Embarked'].dropna().value_counts(normalize=True) * 100
+
+print("Distribuição de decks (não sobreviventes):\n", cabine)
+print("\nDistribuição de gêneros (não sobreviventes):\n", genero)
+print("\nDistribuição de embarques (não sobreviventes):\n", embarque)
+table01 = pd.DataFrame({
+    "treatmenta": [np.NaN, 16, 3],
+    "treatmentb": [2, 11, 1]
+}, index = ["John Smith", "Jane Doe", "Mary Johnson"])
+table01
+table01.columns = ["a", "b"]
+table01 = table01.stack(dropna=False).reset_index()
+table01.columns = ['person', 'treatment', 'result']
+table01
+import pandas as pd
+
+# Tabela 4: colunas de renda como nomes de colunas, e religião como linha
+# Transformar em tidy: cada linha será uma combinação de religião e faixa de renda
+
+df = pd.DataFrame({
+    'religion': ['Agnostic', 'Atheist'],
+    '<$10k': [27, 12],
+    '$10–20k': [34, 27],
+    '$20–30k': [60, 37]
+})
+
+# Aplica melt para transformar as colunas de renda em uma variável
+df_tidy = df.melt(id_vars='religion', var_name='income', value_name='freq')
+print(df_tidy)
+from datetime import timedelta
+
+# Tabela 7: informações da música em colunas fixas e rankings espalhados em colunas wk1 a wkN
+# Transformar para tidy com colunas: artist, track, date, week, rank
+
+df = pd.DataFrame({
+    'year': [2000],
+    'artist': ['2 Pac'],
+    'track': ["Baby Don't Cry"],
+    'time': ['4:22'],
+    'date_entered': ['2000-02-26'],
+    'wk1': [87],
+    'wk2': [82],
+    'wk3': [72]
+})
+
+# Derrete colunas de semana para criar colunas week e rank
+df_melt = df.melt(
+    id_vars=['year', 'artist', 'track', 'time', 'date_entered'],
+    var_name='week',
+    value_name='rank'
+)
+
+# Extrai número da semana e cria coluna com data real usando timedelta
+df_melt['week'] = df_melt['week'].str.extract('(\d+)').astype(int)
+df_melt['date'] = pd.to_datetime(df_melt['date_entered']) + pd.to_timedelta((df_melt['week'] - 1) * 7, unit='d')
+print(df_melt[['year', 'artist', 'time', 'track', 'date', 'week', 'rank']])
+# Tabela 9 e 10a: colunas combinam sexo e idade (ex: m014, f1524)
+# Transformar para tidy com colunas separadas de sex, age, e cases
+
+df = pd.DataFrame({
+    'country': ['AD', 'AE'],
+    'year': [2000, 2000],
+    'm014': [0, 2],
+    'm1524': [0, 4],
+    'f014': [None, 3]
+})
+
+# Aplica melt para criar coluna 'group' com nomes compostos e 'cases' com valores
+df_melt = df.melt(id_vars=['country', 'year'], var_name='group', value_name='cases')
+
+# Separa 'group' em 'sex' e 'age'
+df_melt['sex'] = df_melt['group'].str[0]
+df_melt['age'] = df_melt['group'].str[1:]
+df_melt = df_melt.drop(columns='group')
+print(df_melt)
+# Tabela 11: linhas com elemento tmin/tmax e colunas d1 a d31 com valores
+# Transformar para tidy com colunas separadas para tmin e tmax por dia
+
+df = pd.DataFrame({
+    'id': ['MX17004', 'MX17004'],
+    'year': [2010, 2010],
+    'month': [1, 1],
+    'element': ['tmax', 'tmin'],
+    'd1': [27.8, 14.5],
+    'd2': [28.0, 14.8]
+})
+
+# Derrete as colunas de dia
+df_melt = df.melt(id_vars=['id', 'year', 'month', 'element'], var_name='day', value_name='value')
+
+# Extrai o número do dia da string (ex: 'd1' → 1)
+df_melt['day'] = df_melt['day'].str.extract('(\d+)').astype(int)
+
+# Cria coluna de data completa
+df_melt['date'] = pd.to_datetime(dict(year=df_melt.year, month=df_melt.month, day=df_melt.day), errors='coerce')
+
+# Faz pivot para colocar tmin e tmax em colunas distintas
+df_tidy = df_melt.pivot_table(index=['id', 'date'], columns='element', values='value').reset_index()
+print(df_tidy)
+# Tabela 14a: x e y como colunas
+# Transformar em tidy para que variável (x ou y) fique em uma linha por id
+
+df = pd.DataFrame({
+    'id': [1, 2, 3],
+    'x': [22.19, 19.82, 19.81],
+    'y': [24.05, 22.91, 21.19]
+})
+
+# Derrete x e y para coluna 'variable' e 'value'
+df_tidy = df.melt(id_vars='id', var_name='variable', value_name='value')
+print(df_tidy)
